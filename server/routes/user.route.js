@@ -9,12 +9,12 @@ const router = express.Router();
 
 router.route('/')
 
-/**
- * Creates a new user
- *
- * HTTP POST http://localhost:3000/api/users
- * @return list of users in JSON format
- */
+    /**
+     * Creates a new user
+     *
+     * HTTP POST http://localhost:3000/api/users
+     * @return user information in JSON format
+     */
     .post(validate(schema.storeUser), (req, res) => {
         userCtrl.store(req, res);
     })
@@ -30,19 +30,14 @@ router.route('/')
     });
 
 
-/*  "/api/users/:id"
- *    GET: find user by id
- *    PUT: update user by id
- *    DELETE: deletes user by id
- */
 router.route('/:id')
 
-/**
- * Find the user with that id
- *
- * HTTP GET http://localhost:3000/api/users/:id
- * @return list of users in JSON format
- */
+    /**
+     * Find the user with that id
+     *
+     * HTTP GET http://localhost:3000/api/users/:id
+     * @return  user information in JSON format
+     */
     .get(isAuthenticated, (req, res) => {
         userCtrl.findById(req, res);
     })
@@ -51,7 +46,7 @@ router.route('/:id')
      * Update the user with that id
      *
      * HTTP PUT http://localhost:3000/api/users/:id
-     * @return list of users in JSON format
+     * @return  user information in JSON format
      */
     .put(isAuthenticated, (req, res) => {
         userCtrl.update(req, res);
@@ -61,7 +56,7 @@ router.route('/:id')
      * Delete the user with that id
      *
      * HTTP DELETE http://localhost:3000/api/users/:id
-     * @return list of users in JSON format
+     * @return  message in JSON format
      */
     .delete(isAuthenticated, (req, res) => {
         userCtrl.destroy(req, res);
