@@ -1,4 +1,4 @@
-MySQL, Express, React/Redux and Node Boilerplate in ES6/ES7
+Express, MySQL, React/Redux and Node Boilerplate in ES6/ES7
 
 ## Get Started
 
@@ -14,12 +14,12 @@ On the command prompt run the following commands:
 Clone the repository and install the dependencies
 
 ``` 
- $ git clone https://github.com/Bikranshu/express-react-redux-boilerplate.git
- $ cd express-react-redux-boilerplate
+ $ git clone https://github.com/Bikranshu/express-react-boilerplate.git
+ $ cd express-react-boilerplate
  $ cp .env.example .env (edit it with your secret key and database information)
  $ npm install
  ```
- Run the migrations and seed the database
+ Run the migrations
  
  ```
  $ npm run migrate
