@@ -1,0 +1,18 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": 2,
+    "curly": 2,
+    "eqeqeq": 2,
+    "spaced-comment": 2,
+    "space-infix-ops": 2,
+    "newline-before-return": 2,
+    "linebreak-style": [2, "unix"],
+    "camelcase": [2, {"properties": "never"}],
+    "quotes": [2, "single", {"allowTemplateLiterals": true}]
+  }
+}
