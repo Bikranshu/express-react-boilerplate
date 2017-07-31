@@ -1,11 +1,26 @@
+import path from 'path';
 import app from './config/express';
 import routes from './routes/index.route';
 import * as errorHandler from './middlewares/errorHandler';
 import joiErrorHandler from './middlewares/joiErrorHandler';
 
-// Login page
-app.get('/', (req, res, next) => {
-    res.render('index', {title: 'Express and React'});
+// enable webpack hot module replacement in development mode
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackConfig from '../webpack/webpack.config.dev';
+
+if (process.env.NODE_ENV === 'development') {
+
+    const compiler = webpack(webpackConfig);
+    app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: webpackConfig.output.publicPath}));
+    app.use(webpackHotMiddleware(compiler));
+}
+
+
+// Landing page
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // Router

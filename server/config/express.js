@@ -15,9 +15,7 @@ require('dotenv').config();
 app.set('port',  process.env.APP_PORT || 3000);
 app.set('host',  process.env.APP_HOST || 'localhost');
 
-// view engine setup
-app.set('views', constant.viewsDir);
-app.set('view engine', 'pug');
+app.use('/dist', express.static(constant.distDir));
 
 app.use(cors());
 app.use(helmet());

@@ -1,10 +1,9 @@
 var path = require('path');
-var rootPath = path.normalize(__dirname + '/..');
+var rootPath = path.normalize(__dirname + '/../..');
 
 const directory = {
     root: rootPath,
-    modelsDir: rootPath + '/models',
-    viewsDir: rootPath + '/views',
+    distDir: rootPath + '/dist',
     assetsDir: rootPath + '/public'
 };
 
