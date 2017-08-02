@@ -37,7 +37,6 @@
     "jsonwebtoken": "^7.4.1",
     "knex": "^0.13.0",
     "material-ui": "^1.0.0-beta.3",
-    "material-ui-icons": "^1.0.0-alpha.19",
     "method-override": "^2.3.9",
     "morgan": "^1.8.2",
     "mysql": "^2.13.0",

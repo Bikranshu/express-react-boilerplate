@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form'
 import {withStyles, createStyleSheet} from 'material-ui/styles';
-import Card, {CardContent} from 'material-ui/Card';
+import Card, {CardHeader, CardContent} from 'material-ui/Card';
 import Button from 'material-ui/Button';
 
 // Import custom components
@@ -15,6 +15,10 @@ const styleSheet = createStyleSheet(theme => ({
     },
     card: {
         minWidth: 275,
+        textAlign: "center"
+    },
+    button: {
+        marginTop: 21
     }
 }));
 
@@ -25,6 +29,9 @@ const SignUpForm = props => {
     return (
         <div className={classes.root}>
             <Card className={classes.card}>
+                <CardHeader
+                    title="Sign Up"
+                />
                 <CardContent>
                     <form method="post" onSubmit={handleSubmit(onSubmit)}>
                         <Field
@@ -50,9 +57,10 @@ const SignUpForm = props => {
                             label="Email"
                         />
                         <br />
-                        <Button type="submit" raised color="primary">Save</Button>
+                        <Button className={classes.button} type="submit" raised color="primary">Create New
+                            Account</Button>
                     </form>
-                    <p>Don't have an account? <Link to={'/signup'}>Create one</Link>.</p>
+                    <p>Already have an account? <Link to={'/'}>Login</Link>.</p>
                 </CardContent>
 
             </Card>
