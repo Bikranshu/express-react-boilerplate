@@ -28,7 +28,7 @@ On the command prompt run the following commands:
 List of NPM Commands:
  
   ```
-  $ npm run lint          # linting
+  $ npm run lint       # linting
   $ npm run clean      # remove dist and node_modules folder and install dependencies
  ```
 
@@ -45,6 +45,7 @@ URL : http://localhost:3000/
 - Object schema validation  - [Joi](https://www.npmjs.com/package/joi)
 - JavaScript library for building user interfaces - [React](https://facebook.github.io/react/)
 - Predictable state container - [Redux](http://redux.js.org/)
+- A React component library implementing Google's Material Design - [Material-UI](https://material-ui-1dab0.firebaseapp.com/)
 - Redux Form - [Redux Form](http://redux-form.com/7.0.0/)
 - Declarative routing for React - [React-Router](https://reacttraining.com/react-router/)
 - Promise based HTTP client - [Axios](https://github.com/mzabriskie/axios)
