@@ -11,14 +11,27 @@ import renderText from '../common/form/renderText';
 
 const styleSheet = createStyleSheet(theme => ({
     root: {
-        flexGrow: 1
+        minWidth: 320,
+        maxWidth: 400,
+        height: 'auto',
+        position: 'absolute',
+        top: '15%',
+        left: 0,
+        right: 0,
+        margin: 'auto'
     },
     card: {
-        minWidth: 275,
-        textAlign: "center"
+        padding: 20,
+        overflow: 'auto'
     },
-    button: {
-        marginTop: 21
+    cardHeader: {
+        textAlign: 'center'
+    },
+    btnDiv: {
+        textAlign: 'center'
+    },
+    btn: {
+        marginTop: 21,
     }
 }));
 
@@ -30,6 +43,7 @@ const SignUpForm = props => {
         <div className={classes.root}>
             <Card className={classes.card}>
                 <CardHeader
+                    className={classes.cardHeader}
                     title="Sign Up"
                 />
                 <CardContent>
@@ -57,10 +71,20 @@ const SignUpForm = props => {
                             label="Email"
                         />
                         <br />
-                        <Button className={classes.button} type="submit" raised color="primary">Create New
-                            Account</Button>
+                        <Field
+                            type="password"
+                            name="password"
+                            component={renderText}
+                            label="Password"
+
+                        />
+                        <br />
+                        <div className={classes.btnDiv}>
+                            <Button className={classes.btn} type="submit" raised color="primary">Create New
+                                Account</Button>
+                            <p>Already have an account? <Link to={'/'}>Login</Link>.</p>
+                        </div>
                     </form>
-                    <p>Already have an account? <Link to={'/'}>Login</Link>.</p>
                 </CardContent>
 
             </Card>
@@ -74,16 +98,17 @@ const validateSignUp = values => {
     const requiredFields = [
         'first_name',
         'last_name',
-        'email'
+        'email',
+        'password'
     ];
     requiredFields.forEach(field => {
         if (!values[field]) {
-            errors[field] = '(The ' + field + ' field is required.)'
+            errors[field] = '(The ' + field + ' field is required.)';
         }
     });
 
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = '(Invalid email address.)'
+        errors.email = '(Invalid email address.)';
     }
     return errors
 };

@@ -10,6 +10,7 @@ const history = createHistory();
 import NotFound from '../components/error/NotFound';
 import LoginForm from '../containers/auth/LoginContainer';
 import SignUpForm from '../containers/auth/SignUpContainer';
+import Dashboard from '../containers/dashboard/DashboardContainer';
 
 const Router = () => (
     <ConnectedRouter history={history}>
@@ -17,6 +18,7 @@ const Router = () => (
             <Switch>
                 <Route exact path="/" component={LoginForm}/>
                 <Route path="/signup" component={SignUpForm}/>
+                <Route path="/dashboard" component={Dashboard}/>
 
                 <Route component={NotFound}/>
             </Switch>
