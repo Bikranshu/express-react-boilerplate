@@ -18,7 +18,7 @@ export default function (state, action) {
             return Object.assign({}, state, {
                 isAuthenticated: true,
                 isLoading: false,
-                token: null,
+                token: action.data,
             });
 
         case LOG_IN_FAILURE:

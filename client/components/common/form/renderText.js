@@ -10,7 +10,7 @@ const renderText = ({input, label, type, meta: {touched, error, invalid}}) => (
         error={touched && invalid}
         helperText={touched && error}
         margin="normal"
-        fullWidth="true"
+        fullWidth={true}
         {...input}
     />
 

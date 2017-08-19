@@ -3,15 +3,21 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import createMuiTheme from 'material-ui/styles/theme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import createPalette from 'material-ui/styles/palette';
+import {blueGrey} from 'material-ui/colors';
 import {AppContainer} from 'react-hot-loader';
 
 // Import custom components
 import store from './store/store';
 import MainRouter from './routers/routes';
-import { verifyToken } from './actions/tokenAction';
+import {verifyToken} from './actions/tokenAction';
 
 const mountNode = document.getElementById('root');
-const theme = createMuiTheme();
+const theme = createMuiTheme({
+    palette: createPalette({
+        primary: blueGrey
+    }),
+});
 
 // Used to log in if token is valid
 store.dispatch(verifyToken());
