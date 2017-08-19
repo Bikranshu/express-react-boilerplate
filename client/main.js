@@ -8,10 +8,13 @@ import {AppContainer} from 'react-hot-loader';
 // Import custom components
 import store from './store/store';
 import MainRouter from './routers/routes';
+import { verifyToken } from './actions/tokenAction';
 
 const mountNode = document.getElementById('root');
 const theme = createMuiTheme();
 
+// Used to log in if token is valid
+store.dispatch(verifyToken());
 
 const renderApp = () => {
     ReactDOM.render(

@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+
+import * as authService from '../../services/authService';
 
 // Import custom components
 import LoginForm from '../../components/auth/LoginForm';
@@ -18,7 +22,8 @@ class LoginContainer extends Component {
      * @param {object} formProps
      */
     submitForm(formProps) {
-        console.log(formProps);
+
+        this.props.actions.login(formProps);
     }
 
     render() {
@@ -31,4 +36,19 @@ class LoginContainer extends Component {
 
 }
 
-export default LoginContainer
+/**
+ * Map the state to props.
+ */
+const mapStateToProps = state => ({
+    token: state.auth.token,
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+/**
+ * Map the actions to props.
+ */
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(Object.assign({}, authService), dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
