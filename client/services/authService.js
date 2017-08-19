@@ -4,7 +4,7 @@ import axios from 'axios';
 import * as AuthAction from '../actions/authAction';
 import * as ApiAction from '../actions/apiAction';
 
-import {BASE_URL, API_URL} from '../constants/app';
+import {BASE_URL, API_URL} from '../config/config';
 import {setToken, clearToken} from '../utils/storageUtil';
 
 export function login({email, password}) {
@@ -37,8 +37,4 @@ export function logout() {
         window.location.href = BASE_URL;
         return false;
     };
-}
-
-export function signup({firstname, lastname, email, password}) {
-
 }

@@ -2,20 +2,24 @@
 import {fetch, store, update, destroy} from '../utils/apiUtil';
 import * as Converter from '../utils/converter';
 
-import {API_URL} from '../constants/app';
+import {API_URL} from '../config/config';
 
-export function fetch(pathParam, data) {
-    return fetch(API_URL, pathParam.toLowerCase());
+export function fetchEntity(resourceName, data) {
+    return fetch(API_URL, resourceName.toLowerCase());
 }
 
-export function store(resourceName, data) {
+export function fetchEntityById(resourceName, dataId) {
+    return fetch(API_URL, Converter.getPathParam(resourceName.toLowerCase(), dataId));
+}
+
+export function storeEntity(resourceName, data) {
     return store(API_URL, resourceName.toLowerCase(), data);
 }
 
-export function update(resourceName, data, dataId) {
+export function updateEntity(resourceName, data, dataId) {
     return update(API_URL, Converter.getPathParam(resourceName.toLowerCase(), dataId), data);
 }
 
-export function destroy(resourceName, dataId) {
+export function destroyEntity(resourceName, dataId) {
     return destroy(API_URL, Converter.getPathParam(resourceName.toLowerCase(), dataId));
 }

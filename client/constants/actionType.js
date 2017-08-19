@@ -7,3 +7,9 @@ export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
 
 export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
 export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
+
+export const FAILURE = 'FAILURE';
+export const LIST = 'LIST';
+export const DELETE = 'DELETE';
+export const SELECT_ITEM = 'SELECT_ITEM';
+export const CLEAR_LIST = 'CLEAR_LIST';
