@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux';
-import {withStyles, createStyleSheet} from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Button from 'material-ui/Button';
@@ -10,14 +9,6 @@ import MenuIcon from 'material-ui-icons/Menu';
 
 import * as authService from '../../../services/authService';
 
-const styleSheet = createStyleSheet(theme => ({
-    root: {
-        width: '100%',
-    },
-    flex: {
-        flex: 1,
-    }
-}));
 
 class Header extends Component {
 
@@ -27,13 +18,19 @@ class Header extends Component {
     }
 
     render() {
-        const {classes} = this.props;
-
+        const {styles, handleToggleDrawer} = this.props;
+        const customStyle = {
+            appBar: {
+                position: 'static',
+                top: 0,
+                overflow: 'hidden'
+            }
+        };
         return (
-            <div className={classes.root}>
-                <AppBar position="static">
+            <div>
+                <AppBar style={{...styles, ...customStyle.appBar}}>
                     <Toolbar>
-                        <IconButton color="contrast" aria-label="Menu">
+                        <IconButton color="contrast" aria-label="Menu" onClick={handleToggleDrawer}>
                             <MenuIcon />
                         </IconButton>
                         <Button color="contrast" onClick={this.logOut.bind(this)}>Logout</Button>
@@ -51,4 +48,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(Object.assign({}, authService), dispatch)
 });
 
-export default connect(null, mapDispatchToProps)(withStyles(styleSheet)(Header))
+export default connect(null, mapDispatchToProps)(Header)

@@ -16,7 +16,7 @@ const mountNode = document.getElementById('root');
 const theme = createMuiTheme({
     palette: createPalette({
         primary: blueGrey
-    }),
+    })
 });
 
 // Used to log in if token is valid

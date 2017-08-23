@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import Header from '../common/header/Header'
+import Layout from '../common/layout/Layout'
 
 
 const Dashboard = props => {
 
     return (
-        <Header/>
+        <Layout/>
     )
 };
 

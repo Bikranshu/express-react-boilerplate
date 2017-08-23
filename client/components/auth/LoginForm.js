@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form'
-import {withStyles, createStyleSheet} from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 import Card, {CardHeader, CardContent} from 'material-ui/Card';
 import Button from 'material-ui/Button';
 
 // Import custom components
 import renderText from '../common/form/renderText';
 
-const styleSheet = createStyleSheet(theme => ({
+const styles = {
     root: {
         minWidth: 320,
         maxWidth: 400,
@@ -33,7 +33,7 @@ const styleSheet = createStyleSheet(theme => ({
     btn: {
         marginTop: 21,
     }
-}));
+};
 
 const LoginForm = props => {
 
@@ -102,4 +102,4 @@ LoginForm.propTypes = {
 export default reduxForm({
     form: 'LoginForm', // a unique identifier for this form
     validate: validateLogin // ←Callback function for client-side validation
-})(withStyles(styleSheet)(LoginForm))
+})(withStyles(styles)(LoginForm))

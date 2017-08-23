@@ -8,8 +8,10 @@ export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
 export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
 export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
 
-export const FAILURE = 'FAILURE';
-export const LIST = 'LIST';
-export const DELETE = 'DELETE';
-export const SELECT_ITEM = 'SELECT_ITEM';
-export const CLEAR_LIST = 'CLEAR_LIST';
+export const ENTITY_FAILURE = 'ENTITY_FAILURE';
+export const ENTITY_CREATE = 'ENTITY_CREATE';
+export const ENTITY_UPDATE = 'ENTITY_UPDATE';
+export const ENTITY_LIST = 'ENTITY_LIST';
+export const ENTITY_DELETE = 'ENTITY_DELETE';
+export const SELECT_ENTITY_ITEM = 'SELECT_ENTITY_ITEM';
+export const CLEAR_ENTITY_LIST = 'CLEAR_ENTITY_LIST';
