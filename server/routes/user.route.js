@@ -6,25 +6,100 @@ import schema from '../utils/validator';
 
 const router = express.Router();
 
+/**
+ * @swagger
+ * definitions:
+ *   User:
+ *     type: object
+ *     properties:
+ *       id:
+ *         type: integer
+ *         description: Unique identifier representing a specific user
+ *         example: 2
+ *       first_name:
+ *         type: string
+ *         description: first name of the user
+ *         example: Krishna
+ *       last_name:
+ *         type: string
+ *         description: last name of the user
+ *         example: Timilsina
+ *       email:
+ *         type: string
+ *         description: email of the user
+ *         required: true
+ *         example: test@gmail.com
+ *       password:
+ *         type: string
+ *         description: password of the user
+ *         required: true
+ *         example: 1234
+ *       status:
+ *         type: integer
+ *         description: status of the user
+ *         example: 1
+ *       created_at:
+ *         type: string
+ *         format: date-time
+ *         description: User creation datetime
+ *       updated_at:
+ *         type: string
+ *         format: date-time
+ *         description: User update datetime
+ */
 
 router.route('/')
 
-    /**
-     * Creates a new user
-     *
-     * HTTP POST http://localhost:3000/api/users
-     * @return user information in JSON format
-     */
+/**
+ * @swagger
+ * /users:
+ *   post:
+ *     tags:
+ *       - user
+ *     summary: "Create a new user"
+ *     description: This can only be done by the logged in user.
+ *     operationId: storeUser
+ *     consumes:
+ *       - application/json
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: body
+ *         in: body
+ *         description: Created user object
+ *         required: true
+ *         schema:
+ *           $ref: "#/definitions/User"
+ *     responses:
+ *       200:
+ *         description: OK
+ *         schema:
+ *           $ref: "#/definitions/User"
+ */
+
     .post(validate(schema.storeUser), (req, res) => {
         userCtrl.store(req, res);
     })
 
     /**
-     * find all the users
-     *
-     * HTTP GET http://localhost:3000/api/users
-     * @return list of users in JSON format
+     * @swagger
+     * /users:
+     *   get:
+     *     tags:
+     *       - user
+     *     summary: "Find all users"
+     *     description:
+     *     operationId: findAll
+     *     produces:
+     *       - application/json
+     *     parameters: []
+     *     responses:
+     *       200:
+     *         description: OK
+     *         schema:
+     *            type: object
      */
+
     .get(isAuthenticated, (req, res) => {
         userCtrl.findAll(req, res);
     });
@@ -32,32 +107,98 @@ router.route('/')
 
 router.route('/:id')
 
-    /**
-     * Find the user with that id
-     *
-     * HTTP GET http://localhost:3000/api/users/:id
-     * @return  user information in JSON format
-     */
+/**
+ * @swagger
+ * /users/{id}:
+ *   get:
+ *     tags:
+ *       - user
+ *     summary: Find the user by ID
+ *     description: For valid response try integer IDs.
+ *     operationId: findById
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: userId
+ *         in: path
+ *         description: ID of user that needs to be fetched
+ *         required: true
+ *         type: integer
+ *     responses:
+ *       200:
+ *         description: OK
+ *         schema:
+ *           $ref: "#/definitions/User"
+ *       400:
+ *          description: "Invalid ID"
+ */
+
     .get(isAuthenticated, (req, res) => {
         userCtrl.findById(req, res);
     })
 
     /**
-     * Update the user with that id
-     *
-     * HTTP PUT http://localhost:3000/api/users/:id
-     * @return  user information in JSON format
+     * @swagger
+     * /users/{id}:
+     *   put:
+     *     tags:
+     *       - user
+     *     summary: "Update the user by ID"
+     *     description: This can only be done by the logged in user.
+     *     operationId: update
+     *     consumes:
+     *       - application/json
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: id
+     *         in: path
+     *         description: id that need to be updated
+     *         required: true
+     *         type: integer
+     *       - name: body
+     *         in: body
+     *         description: Updated user object
+     *         required: true
+     *         schema:
+     *           $ref: "#/definitions/User"
+     *     responses:
+     *       200:
+     *         description: OK
+     *         schema:
+     *           $ref: "#/definitions/User"
+     *       400:
+     *         description: Invalid user
      */
+
     .put(isAuthenticated, (req, res) => {
         userCtrl.update(req, res);
     })
 
     /**
-     * Delete the user with that id
-     *
-     * HTTP DELETE http://localhost:3000/api/users/:id
-     * @return  message in JSON format
+     * @swagger
+     * /users/{id}:
+     *   delete:
+     *     tags:
+     *       - user
+     *     summary: Delete the user by ID
+     *     description: For valid response try integer IDs.
+     *     operationId: destroy
+     *     produces:
+     *       - application/json
+     *     parameters:
+     *       - name: userId
+     *         in: path
+     *         description: ID of user that needs to be deleted
+     *         required: true
+     *         type: integer
+     *     responses:
+     *       200:
+     *         description: OK
+     *       400:
+     *          description: "Invalid ID"
      */
+
     .delete(isAuthenticated, (req, res) => {
         userCtrl.destroy(req, res);
     });

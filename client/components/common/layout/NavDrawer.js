@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
@@ -51,6 +50,7 @@ const NavDrawer = (props) => {
                     </ListItemIcon>
                     <ListItemText primary="Settings"/>
                 </ListItem>
+                <Divider/>
                 <ListItem button>
                     <ListItemIcon>
                         <HelpIcon />
