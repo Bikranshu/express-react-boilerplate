@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
@@ -10,16 +11,24 @@ import HelpIcon from 'material-ui-icons/Help';
 import NotificationsIcon from 'material-ui-icons/Notifications';
 import LocalTaxiIcon from 'material-ui-icons/LocalTaxi';
 
+const styles = {
+    list: {
+        width: 250,
+        flex: 'initial',
+    }
+};
+
 const NavDrawer = (props) => {
 
     let {navDrawerOpen} = props;
+    const classes = props.classes;
 
     return (
         <Drawer
             open={navDrawerOpen}
             docked={true}
         >
-            <List>
+            <List className={classes.list} disablePadding>
                 <ListItem button>
                     <ListItemIcon>
                         <HomeIcon />
@@ -63,7 +72,8 @@ const NavDrawer = (props) => {
 };
 
 NavDrawer.propTypes = {
+    classes: PropTypes.object.isRequired,
     navDrawerOpen: PropTypes.bool
 };
 
-export default NavDrawer
+export default withStyles(styles)(NavDrawer)
