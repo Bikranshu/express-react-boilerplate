@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
+import classNames from 'classnames';
 import Drawer from 'material-ui/Drawer';
 import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
@@ -11,24 +12,57 @@ import HelpIcon from 'material-ui-icons/Help';
 import NotificationsIcon from 'material-ui-icons/Notifications';
 import LocalTaxiIcon from 'material-ui-icons/LocalTaxi';
 
-const styles = {
-    list: {
-        width: 250,
-        flex: 'initial',
-    }
-};
+const drawerWidth = 250;
 
-const NavDrawer = (props) => {
+const styles = theme => ({
+    drawerPaper: {
+        position: 'relative',
+        height: 'auto',
+        width: drawerWidth,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
+    drawerPaperClose: {
+        width: 60,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+    },
+    drawerInner: {
+        // Make the items inside not wrap when transitioning:
+        width: drawerWidth,
+    },
+    drawerHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        padding: '0 8px',
+        height: 56,
+        [theme.breakpoints.up('sm')]: {
+            height: 64,
+        },
+    }
+});
+
+const MiniDrawer = (props) => {
 
     let {navDrawerOpen} = props;
     const classes = props.classes;
 
     return (
         <Drawer
+            type="permanent"
+            classes={{
+                paper: classNames(classes.drawerPaper, !navDrawerOpen && classes.drawerPaperClose),
+            }}
             open={navDrawerOpen}
-            docked={true}
         >
-            <List className={classes.list} disablePadding>
+            <div className={classes.drawerHeader}/>
+            <Divider />
+            <List>
                 <ListItem button>
                     <ListItemIcon>
                         <HomeIcon />
@@ -71,9 +105,9 @@ const NavDrawer = (props) => {
     )
 };
 
-NavDrawer.propTypes = {
+MiniDrawer.propTypes = {
     classes: PropTypes.object.isRequired,
     navDrawerOpen: PropTypes.bool
 };
 
-export default withStyles(styles)(NavDrawer)
+export default withStyles(styles)(MiniDrawer)

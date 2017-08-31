@@ -7,6 +7,7 @@ import createHistory from 'history/createBrowserHistory'
 const history = createHistory();
 
 // Import custom components
+import MainLayout from '../components/common/layout/MainLayout';
 import NotFound from '../components/error/NotFound';
 import LoginForm from '../containers/auth/LoginContainer';
 import SignUpForm from '../containers/auth/SignUpContainer';
@@ -15,15 +16,18 @@ import AuthenticatedRoute from './AuthenticatedRoute';
 
 const Router = () => (
     <ConnectedRouter history={history}>
-        <div>
-            <Switch>
-                <Route exact path="/" component={LoginForm}/>
-                <Route path="/signup" component={SignUpForm}/>
-                <AuthenticatedRoute path="/dashboard" component={Dashboard}/>
+        <Switch>
+            <Route exact path="/" component={LoginForm}/>
+            <Route path="/signup" component={SignUpForm}/>
 
-                <Route component={NotFound}/>
-            </Switch>
-        </div>
+            <MainLayout>
+                <Switch>
+                    <AuthenticatedRoute path="/dashboard" component={Dashboard}/>
+                </Switch>
+            </MainLayout>
+
+            <Route component={NotFound}/>
+        </Switch>
     </ConnectedRouter>
 );
 

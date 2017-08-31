@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
+import classNames from 'classnames';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Button from 'material-ui/Button';
@@ -9,6 +12,27 @@ import MenuIcon from 'material-ui-icons/Menu';
 
 import * as authService from '../../../services/authService';
 
+const drawerWidth = 250;
+
+const styles = theme => ({
+    appBar: {
+        position: 'absolute',
+        zIndex: theme.zIndex.navDrawer + 1,
+        transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+    },
+    appBarShift: {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    }
+
+});
 
 class Header extends Component {
 
@@ -18,17 +42,11 @@ class Header extends Component {
     }
 
     render() {
-        const {styles, handleToggleDrawer} = this.props;
-        const customStyle = {
-            appBar: {
-                position: 'static',
-                top: 0,
-                overflow: 'hidden'
-            }
-        };
+        const {classes, navDrawerOpen, handleToggleDrawer} = this.props;
+
         return (
             <div>
-                <AppBar style={{...styles, ...customStyle.appBar}}>
+                <AppBar className={classNames(classes.appBar, navDrawerOpen && classes.appBarShift)}>
                     <Toolbar>
                         <IconButton color="contrast" aria-label="Menu" onClick={handleToggleDrawer}>
                             <MenuIcon />
@@ -41,6 +59,10 @@ class Header extends Component {
     }
 }
 
+Header.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+
 /**
  * Map the actions to props.
  */
@@ -48,4 +70,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(Object.assign({}, authService), dispatch)
 });
 
-export default connect(null, mapDispatchToProps)(Header)
+export default connect(null, mapDispatchToProps)(withStyles(styles)(Header))
