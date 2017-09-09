@@ -6,6 +6,7 @@ import {withStyles} from 'material-ui/styles';
 import classNames from 'classnames';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
@@ -30,8 +31,13 @@ const styles = theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
+    },
+    menuButton: {
+        marginLeft: -15
+    },
+    flex: {
+        flex: 1
     }
-
 });
 
 class Header extends Component {
@@ -48,9 +54,13 @@ class Header extends Component {
             <div>
                 <AppBar className={classNames(classes.appBar, navDrawerOpen && classes.appBarShift)}>
                     <Toolbar>
-                        <IconButton color="contrast" aria-label="Menu" onClick={handleToggleDrawer}>
+                        <IconButton color="contrast" aria-label="Menu" onClick={handleToggleDrawer}
+                                    className={classes.menuButton}>
                             <MenuIcon />
                         </IconButton>
+                        <Typography type="title" color="inherit" className={classes.flex}>
+
+                        </Typography>
                         <Button color="contrast" onClick={this.logOut.bind(this)}>Logout</Button>
                     </Toolbar>
                 </AppBar>
