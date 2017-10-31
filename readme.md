@@ -49,7 +49,7 @@ Navigate to http://localhost:3000/swagger for the API documentation.
 - JavaScript library for building user interfaces - [React](https://facebook.github.io/react/)
 - Predictable state container - [Redux](http://redux.js.org/)
 - A React component library implementing Google's Material Design - [Material-UI](https://material-ui-1dab0.firebaseapp.com/)
-- Redux Form - [Redux Form](http://redux-form.com/7.0.4/)
+- Redux Form - [Redux Form](http://redux-form.com/7.1.2/)
 - Declarative routing for React - [React-Router](https://reacttraining.com/react-router/)
 - Promise based HTTP client - [Axios](https://github.com/mzabriskie/axios)
 - Code linting tool - [ESLint](http://eslint.org/)
