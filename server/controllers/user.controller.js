@@ -35,7 +35,7 @@ export function findById(req, res) {
         .fetch()
         .then(user => {
             if (!user) {
-                res.status(404).json({
+                res.status(HttpStatus.NOT_FOUND).json({
                     error: true, data: {}
                 });
             }
@@ -121,7 +121,7 @@ export function destroy(req, res) {
         .fetch({require: true})
         .then(user => user.destroy()
             .then(() => res.json({
-                    error: true,
+                    error: false,
                     data: {message: 'User deleted successfully.'}
                 })
             )

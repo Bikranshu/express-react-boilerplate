@@ -43,7 +43,7 @@
     "joi": "^13.0.1",
     "jsonwebtoken": "^8.1.0",
     "knex": "^0.13.0",
-    "material-ui": "^1.0.0-beta.19",
+    "material-ui": "^1.0.0-beta.20",
     "material-ui-icons": "^1.0.0-beta.17",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
@@ -66,7 +66,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.1",
+    "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -80,7 +80,7 @@
     "rimraf": "^2.6.2",
     "webpack": "^3.8.1",
     "webpack-dev-middleware": "^1.12.0",
-    "webpack-dev-server": "^2.9.3",
+    "webpack-dev-server": "^2.9.4",
     "webpack-hot-middleware": "^2.20.0"
   },
   "engines": {

@@ -6,50 +6,40 @@ const router = express.Router();
 /**
  * @swagger
  * tags:
- *   - name: user
- *     description: Operations about user
+ *   - name: authentication
+ *     description: User authentication
  */
 
 /**
  * @swagger
  * definitions:
- *   User:
+ *   Login:
  *     type: object
  *     properties:
- *       id:
- *         type: integer
- *         description: Unique identifier representing a specific user
- *         example: 2
- *       first_name:
- *         type: string
- *         description: first name of the user
- *         example: Krishna
- *       last_name:
- *         type: string
- *         description: last name of the user
- *         example: Timilsina
  *       email:
  *         type: string
- *         description: email of the user
- *         required: true
  *         example: test@gmail.com
  *       password:
  *         type: string
- *         description: password of the user
- *         required: true
- *         example: 1234
- *       status:
- *         type: integer
- *         description: status of the user
- *         example: 1
- *       created_at:
- *         type: string
- *         format: date-time
- *         description: User creation datetime
- *       updated_at:
- *         type: string
- *         format: date-time
- *         description: User update datetime
+ *         example: "1234"
+ *   Token:
+ *    type: object
+ *    properties:
+ *      email:
+ *        type: string
+ *        example: test@gmail.com
+ *      token:
+ *        type: string
+ *        example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE1MDk5ODg2NDZ9.1zTKAzXmuyQDHw4uJXa324fFS1yZwlriFSppvK6nOQY
+ *   Error:
+ *      type: object
+ *      properties:
+ *         message:
+ *            type: string
+ *         error:
+ *            type: boolean
+ *            default: true
+ *
  */
 
 /**
@@ -57,8 +47,8 @@ const router = express.Router();
  * /auth/login:
  *   post:
  *     tags:
- *       - user
- *     summary: Authenticate user into the application
+ *       - authentication
+ *     summary: Authenticate a user and receive a JWT Token
  *     description:
  *     operationId: login
  *     consumes:
@@ -66,23 +56,24 @@ const router = express.Router();
  *     produces:
  *       - application/json
  *     parameters:
- *       - name: email
- *         in: query
- *         description: The email for login
- *         type: string
+ *       - name: body
+ *         in: body
  *         required: true
- *       - name: password
- *         in: query
- *         description: The password for login
- *         type: string
- *         required: true
+ *         schema:
+ *           $ref: '#/definitions/Login'
  *     responses:
  *       200:
  *         description: OK
  *         schema:
- *           $ref: "#/definitions/User"
+ *            $ref: '#/definitions/Token'
  *       400:
- *          description: Invalid username/password
+ *         description: Invalid username/password
+ *         schema:
+ *            $ref: '#/definitions/Error'
+ *       404:
+ *         description: User not found
+ *         schema:
+ *            $ref: '#/definitions/Error'
  */
 
 router.route('/login')

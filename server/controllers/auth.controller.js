@@ -26,7 +26,7 @@ export function login(req, res) {
 
                 res.json({
                     token,
-                    email: user.email
+                    email:  user.get('email')
                 });
             } else {
                 logger.log('error', 'Authentication failed. Invalid password.');
