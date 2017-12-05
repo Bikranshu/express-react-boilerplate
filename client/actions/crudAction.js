@@ -21,10 +21,10 @@ import * as apiService from '../services/apiService';
  */
 
 
-export function fetchAll(entity, data) {
+export function fetchAll(entity) {
     return function (dispatch) {
         dispatch(apiAction.apiRequest());
-        return apiService.fetchEntity(entity, data).then((response) => {
+        return apiService.fetchEntity(entity).then((response) => {
             dispatch(apiAction.apiResponse());
             dispatch(commonAction.list(entity, response.data));
         })
