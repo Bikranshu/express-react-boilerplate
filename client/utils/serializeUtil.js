@@ -1,4 +1,4 @@
-export function serialize(data) {
+export function getQueryParam(data) {
     if (typeof(data) != 'object') {
         return '?' + data;
     }
@@ -11,8 +11,7 @@ export function serialize(data) {
     return '?' + str.join('&');
 }
 
-export function getPathParam() {
-    var args = arguments;
+export function getPathParam(...args) {
     var params = [];
 
     for (var a in args) {

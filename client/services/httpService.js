@@ -1,6 +1,6 @@
 // Import custom utils
-import {fetch, store, update, destroy} from '../utils/apiUtil';
-import * as Converter from '../utils/converter';
+import {fetch, store, update, destroy} from '../utils/httpUtil';
+import {getPathParam, getQueryParam} from '../utils/serializeUtil';
 
 import {API_URL} from '../config/config';
 
@@ -9,7 +9,7 @@ export function fetchEntity(entityName) {
 }
 
 export function fetchEntityById(entityName, dataId) {
-    return fetch(API_URL, Converter.getPathParam(entityName.toLowerCase(), dataId));
+    return fetch(API_URL, getPathParam(entityName.toLowerCase(), dataId));
 }
 
 export function storeEntity(entityName, data) {
@@ -17,9 +17,9 @@ export function storeEntity(entityName, data) {
 }
 
 export function updateEntity(entityName, data, dataId) {
-    return update(API_URL, Converter.getPathParam(entityName.toLowerCase(), dataId), data);
+    return update(API_URL, getPathParam(entityName.toLowerCase(), dataId), data);
 }
 
 export function destroyEntity(entityName, dataId) {
-    return destroy(API_URL, Converter.getPathParam(entityName.toLowerCase(), dataId));
+    return destroy(API_URL, getPathParam(entityName.toLowerCase(), dataId));
 }

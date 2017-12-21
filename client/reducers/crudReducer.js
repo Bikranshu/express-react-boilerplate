@@ -1,7 +1,7 @@
 import {
     ENTITY_CREATE,
     ENTITY_UPDATE,
-    ENTITY_LIST,
+    ENTITY_FETCH,
     SELECT_ENTITY_ITEM,
     ENTITY_DELETE,
     CLEAR_ENTITY_LIST
@@ -31,12 +31,13 @@ export default function (state, action) {
             newState[action.entity] = Object.assign({}, state, action.data);
             return newState;
 
-        case ENTITY_LIST:
+        case ENTITY_FETCH:
             newState[action.entity] = Object.assign({}, state, action.data);
             return newState;
 
         case ENTITY_DELETE:
-            newState[action.entity] = Object.assign({}, state, action.data);
+            const data = Object.assign({}, state);
+            newState[action.entity] = data.filter(data => data.id !== action.data.id);
             return newState;
 
         case SELECT_ENTITY_ITEM:

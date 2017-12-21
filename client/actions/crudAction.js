@@ -1,16 +1,14 @@
-import createHistory from 'history/createBrowserHistory';
-const history = createHistory();
+import history from '../utils/history';
 
 /**
- * Import all apiAction as an object.
+ * Import all commonAction as an object.
  */
-import * as apiAction from './apiAction';
 import * as commonAction from './commonAction';
 
 /**
- * Import all apiService as an object.
+ * Import all httpService as an object.
  */
-import * as apiService from '../services/apiService';
+import * as httpService from '../services/httpService';
 
 
 /**
@@ -23,9 +21,7 @@ import * as apiService from '../services/apiService';
 
 export function fetchAll(entity) {
     return function (dispatch) {
-        dispatch(apiAction.apiRequest());
-        return apiService.fetchEntity(entity).then((response) => {
-            dispatch(apiAction.apiResponse());
+        return httpService.fetchEntity(entity).then((response) => {
             dispatch(commonAction.list(entity, response.data));
         })
             .catch((error) => {
@@ -36,9 +32,7 @@ export function fetchAll(entity) {
 
 export function fetchById(entity, id) {
     return function (dispatch) {
-        dispatch(apiAction.apiRequest());
-        return apiService.fetchEntityById(entity, id).then((response) => {
-            dispatch(apiAction.apiResponse());
+        return httpService.fetchEntityById(entity, id).then((response) => {
             dispatch(commonAction.selectItem(entity, response.data));
         })
             .catch((error) => {
@@ -49,10 +43,7 @@ export function fetchById(entity, id) {
 
 export function storeItem(entity, data) {
     return function (dispatch) {
-        dispatch(apiAction.apiRequest());
-        return apiService.storeEntity(entity, data).then((response) => {
-            dispatch(apiAction.apiResponse());
-
+        return httpService.storeEntity(entity, data).then((response) => {
             history.goBack();
         })
             .catch((error) => {
@@ -63,10 +54,7 @@ export function storeItem(entity, data) {
 
 export function updateItem(entity, data, id) {
     return function (dispatch) {
-        dispatch(apiAction.apiRequest());
-        return apiService.updateEntity(entity, data, id).then((response) => {
-            dispatch(apiAction.apiResponse());
-
+        return httpService.updateEntity(entity, data, id).then((response) => {
             history.goBack();
         })
             .catch((error) => {
@@ -77,10 +65,7 @@ export function updateItem(entity, data, id) {
 
 export function destroyItem(entity, id, data) {
     return function (dispatch) {
-        dispatch(apiAction.apiRequest());
-        return apiService.destroyEntity(entity, id).then((response) => {
-            dispatch(apiAction.apiResponse());
-
+        return httpService.destroyEntity(entity, id).then((response) => {
             dispatch(fetchAll(entity, data));
         })
             .catch((error) => {
