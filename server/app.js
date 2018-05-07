@@ -23,13 +23,13 @@ app.get('/swagger.json', (req, res) => {
    res.json(swagger);
 });
 
-// Landing page
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-});
-
 // Router
 app.use('/api', routes);
+
+// Landing page
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 
 // Joi Error Handler
 app.use(joiErrorHandler);

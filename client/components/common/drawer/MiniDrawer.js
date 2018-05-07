@@ -5,6 +5,9 @@ import classNames from 'classnames';
 import Drawer from 'material-ui/Drawer';
 import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography'
+import Avatar from 'material-ui/Avatar';
 import HomeIcon from 'material-ui-icons/Home';
 import PersonIcon from 'material-ui-icons/Person';
 import SettingsIcon from 'material-ui-icons/Settings';
@@ -44,7 +47,14 @@ const styles = theme => ({
         [theme.breakpoints.up('sm')]: {
             height: 64,
         },
-    }
+    },
+    avatar: {
+        margin: 10,
+    },
+    bigAvatar: {
+        width: 60,
+        height: 60,
+    },
 });
 
 const MiniDrawer = (props) => {
@@ -62,6 +72,20 @@ const MiniDrawer = (props) => {
         >
             <div className={classes.drawerHeader}/>
             <Divider />
+
+            <div className={classes.root}>
+                <Avatar alt="User" src="/img/avatar5.png" className={classNames(classes.avatar, classes.bigAvatar)}/>
+                <Typography component="p" className={classes.avatar}>
+                    John Doe
+                </Typography>
+                <Typography component="span" className={classes.avatar}>
+                    john.doe@example.com
+                </Typography>
+            </div>
+            <div className="box" style={{background: '#eee', padding: '8px 16px'}}>
+                MAIN NAVIGATION
+            </div>
+
             <List>
                 <ListItem button>
                     <ListItemIcon>
