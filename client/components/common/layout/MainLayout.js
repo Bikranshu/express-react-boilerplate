@@ -10,7 +10,7 @@ import Footer from '../footer/Footer';
 const styles = theme => ({
     root: {
         width: '100%',
-        height: 430,
+        height: 'auto',
         zIndex: 1,
         overflow: 'hidden',
     },
@@ -23,7 +23,6 @@ const styles = theme => ({
     content: {
         width: '100%',
         flexGrow: 1,
-        backgroundColor: theme.palette.background.default,
         padding: 24,
         height: 'calc(100% - 56px)',
         marginTop: 56,
@@ -31,7 +30,7 @@ const styles = theme => ({
             height: 'calc(100% - 64px)',
             marginTop: 64,
         },
-    },
+    }
 });
 
 class MainLayout extends Component {
@@ -56,7 +55,9 @@ class MainLayout extends Component {
                         {this.props.children}
                     </main>
                 </div>
+
                 <Footer/>
+
             </div>
         )
     }

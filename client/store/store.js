@@ -3,8 +3,7 @@ import { routerMiddleware } from 'react-router-redux';
 import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
 
-import createHistory from 'history/createBrowserHistory';
-const history = createHistory();
+import history from '../utils/history';
 const middleware = routerMiddleware(history);
 
 // Import custom components

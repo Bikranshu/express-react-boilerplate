@@ -9,5 +9,9 @@ export default {
         database: process.env.DB_NAME,
         charset: 'utf8'
     },
+    migrations: {
+        tableName: 'migrations',
+        directory: process.cwd() + '/server/migrations',
+    },
     debug: true
 };

@@ -2,7 +2,6 @@ import axios from 'axios';
 
 // Import custom actionType
 import * as AuthAction from '../actions/authAction';
-import * as ApiAction from '../actions/apiAction';
 
 import {BASE_URL, API_URL} from '../config/config';
 import {setToken, clearToken} from '../utils/storageUtil';
@@ -10,9 +9,6 @@ import {setToken, clearToken} from '../utils/storageUtil';
 export function login({email, password}) {
 
     return function (dispatch) {
-
-        dispatch(ApiAction.apiRequest());
-
         axios.post(API_URL + 'auth/login', {email, password}).then((response) => {
 
             dispatch(AuthAction.loginSuccess(response.data.token));
