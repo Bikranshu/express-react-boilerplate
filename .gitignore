@@ -3,3 +3,6 @@
 .env
 /logs
 /dist
+
+
+package-lock.json
