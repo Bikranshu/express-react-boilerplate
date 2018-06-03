@@ -1,8 +1,13 @@
 {
   "env": {
-    "node": true
+    "browser": true,
+    "node": true,
+    "jasmine": true
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "parser": "babel-eslint",
   "rules": {
     "semi": 2,
@@ -13,6 +18,8 @@
     "newline-before-return": 2,
     "linebreak-style": [2, "unix"],
     "camelcase": [2, {"properties": "never"}],
-    "quotes": [2, "single", {"allowTemplateLiterals": true}]
+    "quotes": [2, "single", {"allowTemplateLiterals": true}],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
   }
 }
