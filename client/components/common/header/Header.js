@@ -73,7 +73,7 @@ class Header extends Component {
 Header.propTypes = {
     classes: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
-    navDrawerOpen: PropTypes.func.isRequired,
+    navDrawerOpen: PropTypes.bool.isRequired,
     handleToggleDrawer: PropTypes.func.isRequired,
 };
 
