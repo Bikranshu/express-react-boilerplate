@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux'
+import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
@@ -41,36 +41,40 @@ const styles = theme => ({
 });
 
 class Header extends Component {
+  logOut(e) {
+    e.preventDefault();
+    this.props.actions.logout();
+  }
 
-    logOut(e) {
-        e.preventDefault();
-        this.props.actions.logout();
-    }
+  render() {
+    const { classes, navDrawerOpen, handleToggleDrawer } = this.props;
 
-    render() {
-        const {classes, navDrawerOpen, handleToggleDrawer} = this.props;
-
-        return (
-            <div>
-                <AppBar className={classNames(classes.appBar, navDrawerOpen && classes.appBarShift)}>
-                    <Toolbar>
-                        <IconButton color="contrast" aria-label="Menu" onClick={handleToggleDrawer}
-                                    className={classes.menuButton}>
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography type="title" color="inherit" className={classes.flex}>
-
-                        </Typography>
-                        <Button color="contrast" onClick={this.logOut.bind(this)}>Logout</Button>
-                    </Toolbar>
-                </AppBar>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <AppBar className={classNames(classes.appBar, navDrawerOpen && classes.appBarShift)}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="Menu"
+              onClick={handleToggleDrawer}
+              className={classes.menuButton}>
+              <MenuIcon />
+            </IconButton>
+            <Typography type="title" color="inherit" className={classes.flex}>
+            </Typography>
+            <Button color="inherit" onClick={this.logOut.bind(this)}>Logout</Button>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 Header.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
+    navDrawerOpen: PropTypes.func.isRequired,
+    handleToggleDrawer: PropTypes.func.isRequired,
 };
 
 /**
@@ -80,4 +84,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(Object.assign({}, authService), dispatch)
 });
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(Header))
+export default connect(null, mapDispatchToProps)(withStyles(styles)(Header));
