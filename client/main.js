@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import {blueGrey} from 'material-ui/colors';
-import {AppContainer} from 'react-hot-loader';
+import { blueGrey } from 'material-ui/colors';
 
 // Import custom components
 import store from './store/store';
-import MainRouter from './routers/routes';
 import {verifyToken} from './actions/tokenAction';
+
+// Import root app
+import App from './containers/app/App';
 
 const mountNode = document.getElementById('root');
 const theme = createMuiTheme({
@@ -24,7 +25,7 @@ const renderApp = () => {
     ReactDOM.render(
         <MuiThemeProvider theme={theme}>
             <Provider store={store}>
-                <MainRouter />
+                <App />
             </Provider>
         </MuiThemeProvider>,
         mountNode
