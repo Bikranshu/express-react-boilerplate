@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 
-const styles = theme => ({
+const styles = () => ({
     legal: {
         backgroundColor: '#fff',
         position: 'absolute',
@@ -21,11 +21,11 @@ class Footer extends Component {
 
         return (
             <div className={classes.legal}>
-                <div class="copyright">
+                <div className="copyright">
                     © 2016 - 2017 <a href="javascript:void(0);">Material Design</a>.
                 </div>
             </div>
-        )
+        );
     }
 }
 
@@ -33,4 +33,4 @@ Footer.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Footer)
+export default withStyles(styles)(Footer);

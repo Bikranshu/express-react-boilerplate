@@ -54,12 +54,10 @@ class MainLayout extends Component {
                     <main className={classes.content}>
                         {this.props.children}
                     </main>
+                    <Footer/>
                 </div>
-
-                <Footer/>
-
             </div>
-        )
+        );
     }
 
 }
@@ -69,4 +67,4 @@ MainLayout.propTypes = {
     children: PropTypes.element
 };
 
-export default withStyles(styles)(MainLayout)
+export default withStyles(styles)(MainLayout);
