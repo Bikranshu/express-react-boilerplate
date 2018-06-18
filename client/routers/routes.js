@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 // Import routing components
 import {Route, Switch} from 'react-router-dom';
