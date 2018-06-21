@@ -1,7 +1,7 @@
 'use strict';
 const webpack = require('webpack');
 const path = require('path');
-const env = process.env.NODE_ENV;
+
 /*
  * so process.cwd() is used instead to determine the correct base directory
  * Read more: https://nodejs.org/api/process.html#process_process_cwd
@@ -21,7 +21,17 @@ var config = {
         publicPath: '/dist/',
     },
     plugins: [
-        
+        new webpack.DefinePlugin({
+            PRODUCTION: JSON.stringify(true),
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                pure_getters: true,
+                unsafe: true,
+                unsafe_comps: true,
+                warnings: false
+            }
+        })
     ],
     module: {
         rules: [
