@@ -21,7 +21,17 @@ var config = {
         publicPath: '/dist/',
     },
     plugins: [
-        
+        new webpack.DefinePlugin({
+            PRODUCTION: JSON.stringify(true),
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compressor: {
+                pure_getters: true,
+                unsafe: true,
+                unsafe_comps: true,
+                warnings: false
+            }
+        })
     ],
     module: {
         rules: [
