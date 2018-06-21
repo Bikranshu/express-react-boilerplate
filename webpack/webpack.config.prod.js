@@ -21,9 +21,6 @@ var config = {
         publicPath: '/dist/',
     },
     plugins: [
-        new webpack.DefinePlugin({
-            PRODUCTION: JSON.stringify(true),
-        }),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
                 pure_getters: true,
