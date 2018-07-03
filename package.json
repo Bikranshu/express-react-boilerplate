@@ -23,6 +23,9 @@
     "es6",
     "express",
     "react",
+    "redux",
+    "react-router",
+    "webpack",
     "boilerplate"
   ],
   "author": "Krishna Timilsina <bikranshu.t@gmail.com>",
