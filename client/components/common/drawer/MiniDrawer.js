@@ -64,7 +64,7 @@ const MiniDrawer = (props) => {
 
     return (
         <Drawer
-            type="permanent"
+            variant="permanent"
             classes={{
                 paper: classNames(classes.drawerPaper, !navDrawerOpen && classes.drawerPaperClose),
             }}
