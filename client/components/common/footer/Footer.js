@@ -21,7 +21,7 @@ class Footer extends Component {
 
         return (
             <div className={classes.legal}>
-                <div class="copyright">
+                <div className="copyright">
                     © 2016 - 2017 <a href="javascript:void(0);">Material Design</a>.
                 </div>
             </div>

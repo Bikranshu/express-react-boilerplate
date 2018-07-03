@@ -54,14 +54,14 @@ class Header extends Component {
             <div>
                 <AppBar className={classNames(classes.appBar, navDrawerOpen && classes.appBarShift)}>
                     <Toolbar>
-                        <IconButton color="contrast" aria-label="Menu" onClick={handleToggleDrawer}
+                        <IconButton aria-label="Menu" onClick={handleToggleDrawer}
                                     className={classes.menuButton}>
                             <MenuIcon />
                         </IconButton>
                         <Typography type="title" color="inherit" className={classes.flex}>
 
                         </Typography>
-                        <Button color="contrast" onClick={this.logOut.bind(this)}>Logout</Button>
+                        <Button onClick={this.logOut.bind(this)}>Logout</Button>
                     </Toolbar>
                 </AppBar>
             </div>

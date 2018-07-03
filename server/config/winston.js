@@ -10,7 +10,7 @@ if (!fs.existsSync(logDir)) {
     fs.mkdirSync(logDir);
 }
 
-const logger = new (winston.Logger)({
+const logger = winston.createLogger({
     transports: [
         new winston.transports.Console({
             timestamp: tsFormat,
@@ -19,9 +19,11 @@ const logger = new (winston.Logger)({
         }),
         new winston.transports.DailyRotateFile({
             timestamp: tsFormat,
-            datePattern: 'yyyy-MM-dd',
+            datePattern: 'YYYY-MM-DD',
+            zippedArchive: true,
             prepend: true,
-            filename: logDir + '/-debug.log',
+            filename: logDir + '/%DATE%-log.log',
+            maxDays:7,
             level: 'info'
         })
     ]
