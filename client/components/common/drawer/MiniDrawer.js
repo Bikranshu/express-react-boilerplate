@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {withStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import List, {ListItem, ListItemIcon, ListItemText} from '@material-ui/core/List';
+import {List, ListItem, ListItemIcon, ListItemText} from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography'

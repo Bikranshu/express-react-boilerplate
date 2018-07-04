@@ -4,7 +4,7 @@ import {withStyles} from '@material-ui/core/styles';
 import {cyan, purple, orange} from '@material-ui/core/colors';
 import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
-import List, {ListItem, ListItemIcon, ListItemText, ListSubheader} from '@material-ui/core/List';
+import {List, ListItem, ListItemIcon, ListItemText, ListSubheader} from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import Wallpaper from '@material-ui/icons/Wallpaper';
 

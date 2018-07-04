@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form'
 import {withStyles} from '@material-ui/core/styles';
-import Card, {CardHeader, CardContent} from '@material-ui/core/Card';
+import {Card, CardHeader, CardContent} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
 // Import custom components

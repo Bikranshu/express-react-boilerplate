@@ -39,9 +39,7 @@ const SummaryBox = props => {
     return (
         <Paper>
         <span className={classes.iconSpan} style={{backgroundColor: color}}>
-          <Icon color="contrast"
-                className={classes.icon}
-          />
+          <Icon className={classes.icon}/>
         </span>
 
             <div className={classes.root}>
@@ -55,7 +53,6 @@ const SummaryBox = props => {
 SummaryBox.propTypes = {
     classes: PropTypes.object.isRequired,
     Icon: PropTypes.any,
-    color: PropTypes.string,
     title: PropTypes.string,
     value: PropTypes.string
 };
