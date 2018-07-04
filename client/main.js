@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import {blueGrey} from '@material-ui/core/colors';
-import {AppContainer} from 'react-hot-loader';
 
 // Import custom components
 import store from './store/store';
-import MainRouter from './routers/routes';
 import {verifyToken} from './actions/tokenAction';
+import App from './containers/app/AppContainer';
 
 const mountNode = document.getElementById('root');
 const theme = createMuiTheme({
@@ -20,30 +19,25 @@ const theme = createMuiTheme({
 // Used to log in if token is valid
 store.dispatch(verifyToken());
 
-const renderApp = () => {
+const renderApp = (Component) => {
     ReactDOM.render(
         <MuiThemeProvider theme={theme}>
             <Provider store={store}>
-                <MainRouter />
+                <Component />
             </Provider>
         </MuiThemeProvider>,
         mountNode
     );
 };
 
-renderApp();
+renderApp(App);
 
-// Hot Module Replacement of react components
+// Webpack Hot Module Replacement API
 if (module.hot) {
-    module.hot.accept('./routers/routes', () => {
-        const HotMainRouter = require('./routers/routes').default;
-        ReactDOM.render(
-            <MuiThemeProvider theme={theme}>
-                <Provider store={store}>
-                    <HotMainRouter />
-                </Provider>
-            </MuiThemeProvider>,
-            mountNode
-        );
-    });
+    module.hot.accept('./containers/app/AppContainer', () => {
+        // if you are using harmony modules ({modules:false})
+        renderApp(App);
+        // in all other cases - re-require App manually
+        renderApp(require('./containers/app/AppContainer'))
+    })
 }

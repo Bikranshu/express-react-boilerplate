@@ -5,8 +5,8 @@
   "scripts": {
     "start": "babel-node server/app.js",
     "clean": "rimraf node_modules && rimraf dist && npm install",
-    "webpack:dev": "cross-env NODE_ENV=development webpack --mode development --config ./webpack/webpack.config.dev.js",
-    "webpack:prod": "cross-env NODE_ENV=production webpack --mode production --config ./webpack/webpack.config.prod.js",
+    "webpack:dev": "cross-env NODE_ENV=development webpack --config ./webpack/webpack.config.dev.js",
+    "webpack:prod": "cross-env NODE_ENV=production webpack --config ./webpack/webpack.config.prod.js",
     "build": "rimraf dist && npm run webpack:dev && npm run start",
     "build:prod": "rimraf dist && npm run webpack:prod && npm run start",
     "migrate": "knex migrate:latest",

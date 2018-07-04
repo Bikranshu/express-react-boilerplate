@@ -15,6 +15,7 @@ var config = {
             './main.js'
         ]
     },
+    mode: 'production',
     output: {
         path: path.resolve(CURRENT_WORKING_DIR, 'dist'), //  destination
         filename: 'client.bundle.js',
@@ -28,9 +29,11 @@ var config = {
             {
                 test: /\.(js|jsx)$/, //check for all js files
                 exclude: /(node_modules)/,
-                use: [{
-                    loader: 'babel-loader?-babelrc,+cacheDirectory,presets[]=env,presets[]=stage-0,presets[]=react',
-                }]
+                loader: 'babel-loader',
+                options: {
+                    babelrc: false,
+                    presets: ['env', 'stage-0', 'react'],
+                },
             }
         ]
     },

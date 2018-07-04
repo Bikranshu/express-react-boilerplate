@@ -9,16 +9,16 @@ const path = require('path');
 const CURRENT_WORKING_DIR = process.cwd();
 
 const config = {
-    context:path.resolve(CURRENT_WORKING_DIR, 'client'),
+    context: path.resolve(CURRENT_WORKING_DIR, 'client'),
     entry: {
         app: [
             'webpack-hot-middleware/client', // bundle the client for hot reloading
-            'react-hot-loader/patch',   // activate HMR for React
             './main.js'  // the entry point of app
         ]
     },
+    mode: 'development',
     output: {
-        path:  path.resolve(CURRENT_WORKING_DIR, 'dist'), //  destination
+        path: path.resolve(CURRENT_WORKING_DIR, 'dist'), //  destination
         filename: 'client.bundle.js',
         publicPath: '/dist/'
     },
@@ -31,13 +31,20 @@ const config = {
             {
                 test: /\.(js|jsx)$/, //check for all js files
                 exclude: /(node_modules)/,
-                use: [{
-                    loader: 'babel-loader?-babelrc,+cacheDirectory,presets[]=env,presets[]=stage-0,presets[]=react',
-                }]
+                loader: 'babel-loader',
+                options: {
+                    babelrc: false,
+                    presets: ['env', 'stage-0', 'react'],
+                    // This is a feature of `babel-loader` for webpack (not Babel itself).
+                    // It enables caching results in ./node_modules/.cache/babel-loader/
+                    // directory for faster rebuilds.
+                    cacheDirectory: true,
+                    plugins: ['react-hot-loader/babel'],
+                },
             }
         ]
     },
-    devtool: "source-map"
+    devtool: "inline-source-map"
 };
 
 module.exports = config;
