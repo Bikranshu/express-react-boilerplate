@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
-import {cyan, pink, purple, orange} from 'material-ui/colors';
-import {AddShoppingCart, ThumbUp, Assessment, Face} from 'material-ui-icons';
+import {withStyles} from '@material-ui/core/styles';
+import {cyan, pink, purple, orange} from '@material-ui/core/colors';
+import {AddShoppingCart, ThumbUp, Assessment, Face} from '@material-ui/icons';
 
 import SummaryBox from './SummaryBox';
 import Product from './Product';

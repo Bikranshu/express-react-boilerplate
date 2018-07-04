@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
-import {cyan, purple, orange} from 'material-ui/colors';
-import Paper from 'material-ui/Paper';
-import Avatar from 'material-ui/Avatar';
-import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
-import ListSubheader from 'material-ui/List/ListSubheader';
-import Divider from 'material-ui/Divider';
-import Wallpaper from 'material-ui-icons/Wallpaper';
+import {withStyles} from '@material-ui/core/styles';
+import {cyan, purple, orange} from '@material-ui/core/colors';
+import Paper from '@material-ui/core/Paper';
+import Avatar from '@material-ui/core/Avatar';
+import List, {ListItem, ListItemIcon, ListItemText, ListSubheader} from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import Wallpaper from '@material-ui/icons/Wallpaper';
 
 const styles = theme => ({
     root: {
