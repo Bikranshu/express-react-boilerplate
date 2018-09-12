@@ -32,7 +32,8 @@ var config = {
                 loader: 'babel-loader',
                 options: {
                     babelrc: false,
-                    presets: ['env', 'stage-0', 'react'],
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    plugins: ['@babel/plugin-proposal-function-bind', '@babel/plugin-proposal-class-properties'],
                 },
             }
         ]

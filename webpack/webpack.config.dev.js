@@ -34,12 +34,12 @@ const config = {
                 loader: 'babel-loader',
                 options: {
                     babelrc: false,
-                    presets: ['env', 'stage-0', 'react'],
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
                     // This is a feature of `babel-loader` for webpack (not Babel itself).
                     // It enables caching results in ./node_modules/.cache/babel-loader/
                     // directory for faster rebuilds.
                     cacheDirectory: true,
-                    plugins: ['react-hot-loader/babel'],
+                    plugins: ['react-hot-loader/babel', '@babel/plugin-proposal-function-bind', '@babel/plugin-proposal-class-properties'],
                 },
             }
         ]
