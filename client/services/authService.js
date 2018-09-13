@@ -18,7 +18,7 @@ export function login({email, password}) {
             window.location.href = BASE_URL + 'dashboard';
         })
             .catch((error) => {
-                dispatch(AuthAction.loginFailure(error));
+                dispatch(AuthAction.loginFailure(error.response.data));
             });
     };
 }

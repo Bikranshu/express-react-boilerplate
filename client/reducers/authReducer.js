@@ -26,6 +26,7 @@ export default function (state, action) {
                 isAuthenticated: false,
                 isLoading: false,
                 token: null,
+                errorMessage: action.error.message || 'Something went wrong.'
             });
 
         case LOG_OUT_SUCCESS:

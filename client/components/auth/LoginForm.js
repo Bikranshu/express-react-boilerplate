@@ -5,9 +5,11 @@ import {Field, reduxForm} from 'redux-form'
 import {withStyles} from '@material-ui/core/styles';
 import {Card, CardHeader, CardContent} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 
 // Import custom components
 import renderText from '../common/form/renderText';
+import CustomizedSnackbar from '../common/snakebar/CustomizedSnackbar';
 
 const styles = {
     root: {
@@ -37,7 +39,7 @@ const styles = {
 
 const LoginForm = props => {
 
-    const {handleSubmit, onSubmit, classes} = props;
+    const {handleSubmit, onSubmit, classes, errorMessage} = props;
 
     return (
         <div className={classes.root}>
@@ -46,6 +48,12 @@ const LoginForm = props => {
                     className={classes.cardHeader}
                     title="Login"
                 />
+                {errorMessage  &&
+                <CustomizedSnackbar
+                    variant="error"
+                    className={classes.margin}
+                    message={ errorMessage }
+                />}
                 <CardContent>
                     <form method="post" onSubmit={handleSubmit(onSubmit)}>
                         <Field
