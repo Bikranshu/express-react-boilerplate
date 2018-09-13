@@ -1,4 +1,4 @@
-require('babel-register');
+require('@babel/register');
 
 const dbConfig = require('./server/config/database');
 
