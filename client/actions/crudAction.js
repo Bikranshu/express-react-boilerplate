@@ -22,7 +22,7 @@ import * as httpService from '../services/httpService';
 export function fetchAll(entity) {
     return function (dispatch) {
         return httpService.fetchEntity(entity).then((response) => {
-            dispatch(commonAction.list(entity, response.data));
+            dispatch(commonAction.fetch(entity, response.data));
         })
             .catch((error) => {
                 dispatch(commonAction.failure(error));

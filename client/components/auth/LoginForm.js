@@ -5,7 +5,6 @@ import {Field, reduxForm} from 'redux-form'
 import {withStyles} from '@material-ui/core/styles';
 import {Card, CardHeader, CardContent} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
 
 // Import custom components
 import renderText from '../common/form/renderText';

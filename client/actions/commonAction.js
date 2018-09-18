@@ -2,7 +2,7 @@ import {
     ENTITY_FAILURE,
     ENTITY_CREATE,
     ENTITY_UPDATE,
-    ENTITY_LIST,
+    ENTITY_FETCH,
     ENTITY_DELETE,
     SELECT_ENTITY_ITEM,
     CLEAR_ENTITY_LIST
@@ -32,9 +32,9 @@ export function update(entity, data) {
     }
 }
 
-export function list(entity, data) {
+export function fetch(entity, data) {
     return {
-        type: ENTITY_LIST,
+        type: ENTITY_FETCH,
         entity: entity,
         data: data
     }

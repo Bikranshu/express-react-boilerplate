@@ -3,8 +3,7 @@ import React from 'react';
 // Import routing components
 import {Route, Switch} from 'react-router-dom';
 import {ConnectedRouter} from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory'
-const history = createHistory();
+import history from '../utils/history';
 
 // Import custom components
 import MainLayout from '../components/common/layout/MainLayout';

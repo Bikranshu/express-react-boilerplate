@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // Import custom actionType
 import * as AuthAction from '../actions/authAction';
+import history from '../utils/history';
 
 import {BASE_URL, API_URL} from '../config/config';
 import {setToken, clearToken} from '../utils/storageUtil';
@@ -15,7 +16,8 @@ export function login({email, password}) {
 
             setToken(response.data.token);
 
-            window.location.href = BASE_URL + 'dashboard';
+            history.push('/dashboard');
+            // window.location.href = BASE_URL + 'dashboard';
         })
             .catch((error) => {
                 dispatch(AuthAction.loginFailure(error.response.data));
@@ -30,7 +32,8 @@ export function logout() {
 
         dispatch(AuthAction.logoutSuccess());
 
-        window.location.href = BASE_URL;
+        history.push('/');
+        // window.location.href = BASE_URL;
         return false;
     };
 }
