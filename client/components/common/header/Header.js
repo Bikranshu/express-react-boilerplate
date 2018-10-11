@@ -33,6 +33,9 @@ const styles = theme => ({
         }),
     },
     menuButton: {
+        marginLeft: 45
+    },
+    menuButtonShift: {
         marginLeft: -15
     },
     flex: {
@@ -55,7 +58,7 @@ class Header extends Component {
                 <AppBar className={classNames(classes.appBar, navDrawerOpen && classes.appBarShift)}>
                     <Toolbar>
                         <IconButton aria-label="Menu" onClick={handleToggleDrawer}
-                                    className={classes.menuButton}>
+                                    className={classNames(!navDrawerOpen && classes.menuButton, navDrawerOpen && classes.menuButtonShift)}>
                             <MenuIcon />
                         </IconButton>
                         <Typography type="title" color="inherit" className={classes.flex}>
