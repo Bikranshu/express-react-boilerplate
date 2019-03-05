@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getToken} from './storageUtil'
+import {getLocalStorage} from './storageUtil';
 
 export function fetch(url, endpoint) {
     return axios
@@ -7,7 +7,7 @@ export function fetch(url, endpoint) {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization': 'Bearer' + ' ' + getToken()
+                'Authorization': 'Bearer' + ' ' + getLocalStorage('token')
             }
         });
 }
@@ -18,7 +18,7 @@ export function store(url, endpoint, data) {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization': 'Bearer' + ' ' + getToken()
+                'Authorization': 'Bearer' + ' ' + getLocalStorage('token')
             }
         });
 }
@@ -29,7 +29,7 @@ export function update(url, endpoint, data) {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization': 'Bearer' + ' ' + getToken()
+                'Authorization': 'Bearer' + ' ' + getLocalStorage('token')
             }
         });
 }
@@ -40,7 +40,7 @@ export function destroy(url, endpoint) {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization': 'Bearer' + ' ' + getToken()
+                'Authorization': 'Bearer' + ' ' + getLocalStorage('token')
             }
         });
 }

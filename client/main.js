@@ -6,7 +6,7 @@ import {blueGrey} from '@material-ui/core/colors';
 
 // Import custom components
 import store from './store/store';
-import {verifyToken} from './actions/tokenAction';
+import {verifyToken} from './services/tokenService';
 import App from './containers/app/AppContainer';
 
 const mountNode = document.getElementById('root');

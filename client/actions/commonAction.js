@@ -13,7 +13,7 @@ export function failure(error) {
     return {
         type: ENTITY_FAILURE,
         error: error
-    }
+    };
 }
 
 export function add(entity, data) {
@@ -21,7 +21,7 @@ export function add(entity, data) {
         type: ENTITY_CREATE,
         entity: entity,
         data: data
-    }
+    };
 }
 
 export function update(entity, data) {
@@ -29,7 +29,7 @@ export function update(entity, data) {
         type: ENTITY_UPDATE,
         entity: entity,
         data: data
-    }
+    };
 }
 
 export function fetch(entity, data) {
@@ -37,7 +37,7 @@ export function fetch(entity, data) {
         type: ENTITY_FETCH,
         entity: entity,
         data: data
-    }
+    };
 }
 
 export function destroy(entity, id) {
@@ -45,7 +45,7 @@ export function destroy(entity, id) {
         type: ENTITY_DELETE,
         entity: entity,
         id: id
-    }
+    };
 }
 
 export function selectItem(entity, data) {
@@ -53,12 +53,12 @@ export function selectItem(entity, data) {
         type: SELECT_ENTITY_ITEM,
         entity: entity,
         data: data
-    }
+    };
 }
 
 export function clearList(entity) {
     return {
         type: CLEAR_ENTITY_LIST,
         entity: entity
-    }
+    };
 }

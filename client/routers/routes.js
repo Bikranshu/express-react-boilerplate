@@ -11,7 +11,7 @@ import NotFound from '../components/error/NotFound';
 import LoginForm from '../containers/auth/LoginContainer';
 import SignUpForm from '../containers/auth/SignUpContainer';
 import Dashboard from '../containers/dashboard/DashboardContainer';
-import AuthenticatedRoute from './AuthenticatedRoute';
+import Authentication from './Authentication';
 
 const Router = () => (
     <ConnectedRouter history={history}>
@@ -21,7 +21,7 @@ const Router = () => (
 
             <MainLayout>
                 <Switch>
-                    <AuthenticatedRoute path="/dashboard" component={Dashboard}/>
+                    <Authentication path="/dashboard" component={Dashboard}/>
                 </Switch>
             </MainLayout>
 

@@ -1,5 +1,5 @@
 export function getQueryParam(data) {
-    if (typeof(data) != 'object') {
+    if (typeof(data) !== 'object') {
         return '?' + data;
     }
     var str = [];

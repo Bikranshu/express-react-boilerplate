@@ -3,9 +3,8 @@ import axios from 'axios';
 // Import custom actionType
 import * as AuthAction from '../actions/authAction';
 import history from '../utils/history';
-
-import {BASE_URL, API_URL} from '../config/config';
-import {setToken, clearToken} from '../utils/storageUtil';
+import {API_URL} from '../config/config';
+import {setLocalStorage, clearLocalStorage} from '../utils/storageUtil';
 
 export function login({email, password}) {
 
@@ -14,10 +13,9 @@ export function login({email, password}) {
 
             dispatch(AuthAction.loginSuccess(response.data.token));
 
-            setToken(response.data.token);
+            setLocalStorage('token', response.data.token);
 
             history.push('/dashboard');
-            // window.location.href = BASE_URL + 'dashboard';
         })
             .catch((error) => {
                 dispatch(AuthAction.loginFailure(error.response.data));
@@ -28,12 +26,12 @@ export function login({email, password}) {
 export function logout() {
     return function (dispatch) {
 
-        clearToken();
+        clearLocalStorage('token');
 
         dispatch(AuthAction.logoutSuccess());
 
         history.push('/');
-        // window.location.href = BASE_URL;
+
         return false;
     };
 }

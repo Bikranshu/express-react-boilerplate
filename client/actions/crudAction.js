@@ -81,5 +81,5 @@ export function submitForm(entity, data, id) {
         } else {
             dispatch(storeItem(entity, data));
         }
-    }
+    };
 }

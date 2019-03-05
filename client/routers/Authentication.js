@@ -1,13 +1,9 @@
 import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
 
-import {getToken} from '../utils/storageUtil'
+import {isAuthenticated} from '../utils/jwtUtil';
 
-const isAuthenticated = () => {
-    return !!getToken();
-};
-
-const AuthenticatedRoute = ({component: Component, ...rest}) => (
+const Authentication = ({component: Component, ...rest}) => (
     <Route {...rest} render={props => (
         isAuthenticated() ? (
             <Component {...props}/>
@@ -20,4 +16,4 @@ const AuthenticatedRoute = ({component: Component, ...rest}) => (
     )}/>
 );
 
-export default AuthenticatedRoute;
+export default Authentication;
