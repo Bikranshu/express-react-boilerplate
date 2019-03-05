@@ -39,7 +39,7 @@ const Product = props => {
                                 secondary={item.text}
                             />
                         </ListItem>
-                        <Divider inset={true}/>
+                        <Divider variant="inset"/>
                     </div>
                 )}
             </List>
@@ -52,4 +52,4 @@ Product.propTypes = {
     data: PropTypes.array,
 };
 
-export default withStyles(styles)(Product)
+export default withStyles(styles)(Product);

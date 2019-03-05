@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import {grey} from '@material-ui/core/colors';
@@ -36,6 +36,7 @@ const styles = theme => ({
 
 const SummaryBox = props => {
     const {classes, color, title, value, Icon} = props;
+
     return (
         <Paper>
         <span className={classes.iconSpan} style={{backgroundColor: color}}>
@@ -57,4 +58,4 @@ SummaryBox.propTypes = {
     value: PropTypes.string
 };
 
-export default withStyles(styles)(SummaryBox)
+export default withStyles(styles)(SummaryBox);

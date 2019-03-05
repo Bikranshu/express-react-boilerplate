@@ -1,9 +1,7 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 // Import routing components
 import {Route, Switch} from 'react-router-dom';
-import {ConnectedRouter} from 'react-router-redux';
-import history from '../utils/history';
 
 // Import custom components
 import MainLayout from '../components/common/layout/MainLayout';
@@ -14,7 +12,7 @@ import Dashboard from '../containers/dashboard/DashboardContainer';
 import Authentication from './Authentication';
 
 const Router = () => (
-    <ConnectedRouter history={history}>
+    <Fragment>
         <Switch>
             <Route exact path="/" component={LoginForm}/>
             <Route path="/signup" component={SignUpForm}/>
@@ -27,7 +25,7 @@ const Router = () => (
 
             <Route component={NotFound}/>
         </Switch>
-    </ConnectedRouter>
+    </Fragment>
 );
 
 export default Router;

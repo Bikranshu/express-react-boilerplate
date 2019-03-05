@@ -80,7 +80,7 @@ const SignUpForm = props => {
                         />
                         <br />
                         <div className={classes.btnDiv}>
-                            <Button className={classes.btn} type="submit" variant="raised" color="primary">Create New
+                            <Button className={classes.btn} type="submit" variant="contained" color="primary">Create New
                                 Account</Button>
                             <p>Already have an account? <Link to={'/'}>Login</Link>.</p>
                         </div>

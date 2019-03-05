@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import {cyan, pink, purple, orange} from '@material-ui/core/colors';
 import Grid from '@material-ui/core/Grid';
 import {AddShoppingCart, ThumbUp, Assessment, Face} from '@material-ui/icons';
@@ -16,10 +15,7 @@ const data = {
     ]
 };
 
-
-const Dashboard = props => {
-
-    const classes = props.classes;
+const Dashboard = () => {
 
     return (
         <div>
@@ -34,7 +30,7 @@ const Dashboard = props => {
                     />
                 </Grid>
 
-               <Grid item xs>
+                <Grid item xs>
                     <SummaryBox Icon={ThumbUp}
                                 color={cyan[600]}
                                 title="Likes"
@@ -42,7 +38,7 @@ const Dashboard = props => {
                     />
                 </Grid>
 
-               <Grid item xs>
+                <Grid item xs>
                     <SummaryBox Icon={Assessment}
                                 color={purple[600]}
                                 title="Sales"
@@ -60,18 +56,14 @@ const Dashboard = props => {
 
             </Grid>
 
-             <Grid container spacing={24}>
-               <Grid item xs>
+            <Grid container spacing={24}>
+                <Grid item xs>
                     <Product data={data.recentProducts}/>
                 </Grid>
             </Grid>
 
         </div>
-    )
+    );
 };
 
-Dashboard.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-
-export default Dashboard
+export default Dashboard;

@@ -71,7 +71,7 @@ const LoginForm = props => {
                         />
                         <br />
                         <div className={classes.btnDiv}>
-                            <Button className={classes.btn} type="submit" variant="raised" color="primary">Login</Button>
+                            <Button className={classes.btn} type="submit" variant="contained" color="primary">Login</Button>
                             <p>Don't have an account? <Link to={'/signup'}>Create one</Link>.</p>
                         </div>
                     </form>
