@@ -38,6 +38,11 @@ var config = {
             }
         ]
     },
+    resolve: {
+        alias: {
+            'react-dom': '@hot-loader/react-dom'
+        }
+    },
     devtool: "hidden-source-map"
 };
 

@@ -22,27 +22,27 @@ const theme = createMuiTheme({
 // Used to log in if token is valid
 store.dispatch(verifyToken());
 
-const renderApp = (Component) => {
+// const renderApp = (Component) => {
     ReactDOM.render(
         <MuiThemeProvider theme={theme}>
             <Provider store={store}>
                 <ConnectedRouter history={history}>
-                <Component />
+                <App />
                 </ConnectedRouter>
             </Provider>
         </MuiThemeProvider>,
         mountNode
     );
-};
+// };
 
-renderApp(App);
+// renderApp(App);
 
-// Webpack Hot Module Replacement API
-if (module.hot) {
-    module.hot.accept('./containers/app/AppContainer', () => {
-        // if you are using harmony modules ({modules:false})
-        renderApp(App);
-        // in all other cases - re-require App manually
-        renderApp(require('./containers/app/AppContainer'));
-    });
-}
+// // Webpack Hot Module Replacement API
+// if (module.hot) {
+//     module.hot.accept('./containers/app/AppContainer', () => {
+//         // if you are using harmony modules ({modules:false})
+//         renderApp(App);
+//         // in all other cases - re-require App manually
+//         renderApp(require('./containers/app/AppContainer'));
+//     });
+// }
