@@ -1,11 +1,10 @@
 /**
- * Up users table.
+ * Create users table.
  *
- * @param  {object} knex
- *
+ * @param   {object} knex
+ * @returns {Promise}
  */
-exports.up = function(knex) {
-    console.log('generating users table');
+exports.up = function (knex) {
     return knex.schema.createTable('users', table => {
         table.increments('id').primary().unsigned();
         table.string('first_name').notNullable();
@@ -21,10 +20,9 @@ exports.up = function(knex) {
 /**
  * Drop users table.
  *
- * @param  {object} knex
- *
+ * @param   {object} knex
+ * @returns {Promise}
  */
-exports.down = function(knex) {
-    console.log('dropping users table');
+exports.down = function (knex) {
     return knex.schema.dropTable('users');
 };
