@@ -20,7 +20,7 @@ import * as httpService from '../services/httpService';
 
 
 export const fetchAll = (entity) => {
-    return function (dispatch) {
+    return dispatch => {
         return httpService.fetchEntity(entity).then((response) => {
             dispatch(commonAction.fetch(entity, response.data));
         })
@@ -31,7 +31,7 @@ export const fetchAll = (entity) => {
 };
 
 export const fetchById = (entity, id) => {
-    return function (dispatch) {
+    return dispatch => {
         return httpService.fetchEntityById(entity, id).then((response) => {
             dispatch(commonAction.selectItem(entity, response.data));
         })
@@ -42,7 +42,7 @@ export const fetchById = (entity, id) => {
 };
 
 export const storeItem = (entity, data) => {
-    return function (dispatch) {
+    return dispatch => {
         return httpService.storeEntity(entity, data).then((response) => {
             history.goBack();
         })
@@ -53,7 +53,7 @@ export const storeItem = (entity, data) => {
 };
 
 export const updateItem = (entity, data, id) => {
-    return function (dispatch) {
+    return dispatch => {
         return httpService.updateEntity(entity, data, id).then((response) => {
             history.goBack();
         })
@@ -64,7 +64,7 @@ export const updateItem = (entity, data, id) => {
 };
 
 export const destroyItem = (entity, id, data) => {
-    return function (dispatch) {
+    return dispatch => {
         return httpService.destroyEntity(entity, id).then((response) => {
             dispatch(fetchAll(entity, data));
         })
@@ -75,7 +75,7 @@ export const destroyItem = (entity, id, data) => {
 };
 
 export const submitForm = (entity, data, id) => {
-    return function (dispatch) {
+    return dispatch => {
         if (id) {
             dispatch(updateItem(entity, data, id));
         } else {
