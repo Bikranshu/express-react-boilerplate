@@ -7,36 +7,36 @@ import {
     SIGN_UP_FAILURE
 } from '../constants/actionType';
 
-export function loginSuccess(data) {
+export const loginSuccess = (data) => {
     return {
         type: LOG_IN_SUCCESS,
         data
     };
-}
+};
 
-export function loginFailure(error) {
+export const loginFailure = (error) => {
     return {
         type: LOG_IN_FAILURE,
         error
     };
-}
+};
 
-export function logoutSuccess() {
+export const logoutSuccess = () => {
     return {
         type: LOG_OUT_SUCCESS
     };
-}
+};
 
-export function signupSuccess(data) {
+export const signupSuccess = (data) => {
     return {
         type: SIGN_UP_SUCCESS,
         data
     };
-}
+};
 
-export function signupFailure(error) {
+export const signupFailure = (error) => {
     return {
         type: SIGN_UP_FAILURE,
         error
     };
-}
+};

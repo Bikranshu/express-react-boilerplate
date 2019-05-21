@@ -1,5 +1,8 @@
 // Import custom components
-import {LOG_IN_SUCCESS, LOG_IN_FAILURE, LOG_OUT_SUCCESS} from '../constants/actionType';
+import {
+    LOG_IN_SUCCESS,
+    LOG_IN_FAILURE, LOG_OUT_SUCCESS
+} from '../constants/actionType';
 
 var initialState = {
     token: null,
@@ -10,7 +13,7 @@ var initialState = {
 /**
  * A reducer takes two arguments, the current state and an action.
  */
-export default function (state, action) {
+const authReducer = (state, action) => {
     state = state || initialState;
 
     switch (action.type) {
@@ -39,4 +42,6 @@ export default function (state, action) {
         default:
             return state;
     }
-}
+};
+
+export default authReducer;

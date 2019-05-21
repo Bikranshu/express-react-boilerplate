@@ -1,11 +1,11 @@
-import {getLocalStorage} from '../utils/storageUtil';
-import {loginSuccess} from '../actions/authAction';
+import {push} from 'connected-react-router';
 
-export function verifyToken() {
-    return (dispatch) => {
-        const token = getLocalStorage('token');
-        if (token) {
-            dispatch(loginSuccess(token));
+import {isAuthenticated} from '../utils/jwtUtil';
+
+export const verifyToken = () => {
+    return dispatch => {
+        if (isAuthenticated()) {
+            dispatch(push('/dashboard'));
         }
     };
-}
+};

@@ -5,9 +5,9 @@ import history from '../utils/history';
 import {API_URL} from '../config/config';
 import {setLocalStorage, clearLocalStorage} from '../utils/storageUtil';
 
-export function login({email, password}) {
+export const login = ({email, password}) => {
 
-    return function (dispatch) {
+    return dispatch => {
         axios.post(API_URL + 'auth/login', {email, password}).then((response) => {
 
             dispatch(loginSuccess(response.data.token));
@@ -20,10 +20,10 @@ export function login({email, password}) {
                 dispatch(loginFailure(error.response.data));
             });
     };
-}
+};
 
-export function logout() {
-    return function (dispatch) {
+export const logout = () => {
+    return dispatch => {
 
         clearLocalStorage('token');
 
@@ -33,4 +33,4 @@ export function logout() {
 
         return false;
     };
-}
+};

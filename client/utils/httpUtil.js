@@ -1,46 +1,21 @@
-import axios from 'axios';
-import {getLocalStorage} from './storageUtil';
+import {httpBase} from './httpBaseUtil';
 
-export function fetch(url, endpoint) {
-    return axios
-        .get(url + endpoint, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': 'Bearer' + ' ' + getLocalStorage('token')
-            }
-        });
-}
+export const fetch = (endpoint) => {
+    return httpBase()
+        .get(endpoint);
+};
 
-export function store(url, endpoint, data) {
-    return axios
-        .post(url + endpoint, data, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': 'Bearer' + ' ' + getLocalStorage('token')
-            }
-        });
-}
+export const store = (endpoint, data) => {
+    return httpBase()
+        .post(endpoint, data);
+};
 
-export function update(url, endpoint, data) {
-    return axios
-        .put(url + endpoint, data, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': 'Bearer' + ' ' + getLocalStorage('token')
-            }
-        });
-}
+export const update = (endpoint, data) => {
+    return httpBase()
+        .put(endpoint, data);
+};
 
-export function destroy(url, endpoint) {
-    return axios
-        .delete(url + endpoint, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': 'Bearer' + ' ' + getLocalStorage('token')
-            }
-        });
-}
+export const destroy = (endpoint) => {
+    return httpBase()
+        .delete(endpoint);
+};
