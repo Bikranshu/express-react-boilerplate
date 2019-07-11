@@ -8,7 +8,7 @@ export default {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
         charset: 'utf8',
-        socketPath: process.env.SOCK_PATH,
+        socketPath: process.env.SOCKET_PATH,
     },
     migrations: {
         tableName: 'migrations',
