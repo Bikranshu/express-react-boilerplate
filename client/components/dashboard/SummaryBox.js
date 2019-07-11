@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
-import {grey} from 'material-ui/colors';
-import Paper from 'material-ui/Paper';
+import {withStyles} from '@material-ui/core/styles';
+import {grey} from '@material-ui/core/colors';
+import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
     root: {
@@ -36,12 +36,11 @@ const styles = theme => ({
 
 const SummaryBox = props => {
     const {classes, color, title, value, Icon} = props;
+
     return (
         <Paper>
         <span className={classes.iconSpan} style={{backgroundColor: color}}>
-          <Icon color="contrast"
-                className={classes.icon}
-          />
+          <Icon className={classes.icon}/>
         </span>
 
             <div className={classes.root}>
@@ -55,9 +54,8 @@ const SummaryBox = props => {
 SummaryBox.propTypes = {
     classes: PropTypes.object.isRequired,
     Icon: PropTypes.any,
-    color: PropTypes.string,
     title: PropTypes.string,
     value: PropTypes.string
 };
 
-export default withStyles(styles)(SummaryBox)
+export default withStyles(styles)(SummaryBox);

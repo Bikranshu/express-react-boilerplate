@@ -1,13 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form'
-import {withStyles} from 'material-ui/styles';
-import Card, {CardHeader, CardContent} from 'material-ui/Card';
-import Button from 'material-ui/Button';
+import {withStyles} from '@material-ui/core/styles';
+import {Card, CardHeader, CardContent} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 // Import custom components
 import renderText from '../common/form/renderText';
+import CustomizedSnackbar from '../common/snakebar/CustomizedSnackbar';
 
 const styles = {
     root: {
@@ -37,7 +38,7 @@ const styles = {
 
 const LoginForm = props => {
 
-    const {handleSubmit, onSubmit, classes} = props;
+    const {handleSubmit, onSubmit, classes, errorMessage} = props;
 
     return (
         <div className={classes.root}>
@@ -46,6 +47,12 @@ const LoginForm = props => {
                     className={classes.cardHeader}
                     title="Login"
                 />
+                {errorMessage  &&
+                <CustomizedSnackbar
+                    variant="error"
+                    className={classes.margin}
+                    message={ errorMessage }
+                />}
                 <CardContent>
                     <form method="post" onSubmit={handleSubmit(onSubmit)}>
                         <Field
@@ -64,7 +71,7 @@ const LoginForm = props => {
                         />
                         <br />
                         <div className={classes.btnDiv}>
-                            <Button className={classes.btn} type="submit" raised color="primary">Login</Button>
+                            <Button className={classes.btn} type="submit" variant="contained" color="primary">Login</Button>
                             <p>Don't have an account? <Link to={'/signup'}>Create one</Link>.</p>
                         </div>
                     </form>

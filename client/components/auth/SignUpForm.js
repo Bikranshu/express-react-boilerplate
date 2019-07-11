@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {Field, reduxForm} from 'redux-form'
-import {withStyles} from 'material-ui/styles';
-import Card, {CardHeader, CardContent} from 'material-ui/Card';
-import Button from 'material-ui/Button';
+import {withStyles} from '@material-ui/core/styles';
+import {Card, CardHeader, CardContent} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 // Import custom components
 import renderText from '../common/form/renderText';
@@ -80,7 +80,7 @@ const SignUpForm = props => {
                         />
                         <br />
                         <div className={classes.btnDiv}>
-                            <Button className={classes.btn} type="submit" raised color="primary">Create New
+                            <Button className={classes.btn} type="submit" variant="contained" color="primary">Create New
                                 Account</Button>
                             <p>Already have an account? <Link to={'/'}>Login</Link>.</p>
                         </div>

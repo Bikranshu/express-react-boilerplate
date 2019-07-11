@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
-import { bindActionCreators } from 'redux';
+import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
 import classNames from 'classnames';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
+import {withStyles} from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 import * as authService from '../../../services/authService';
 
@@ -33,6 +33,9 @@ const styles = theme => ({
         }),
     },
     menuButton: {
+        marginLeft: 45
+    },
+    menuButtonShift: {
         marginLeft: -15
     },
     flex: {
@@ -41,40 +44,36 @@ const styles = theme => ({
 });
 
 class Header extends Component {
-  logOut(e) {
-    e.preventDefault();
-    this.props.actions.logout();
-  }
 
-  render() {
-    const { classes, navDrawerOpen, handleToggleDrawer } = this.props;
+    logOut(e) {
+        e.preventDefault();
+        this.props.actions.logout();
+    }
 
-    return (
-      <div>
-        <AppBar className={classNames(classes.appBar, navDrawerOpen && classes.appBarShift)}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Menu"
-              onClick={handleToggleDrawer}
-              className={classes.menuButton}>
-              <MenuIcon />
-            </IconButton>
-            <Typography type="title" color="inherit" className={classes.flex}>
-            </Typography>
-            <Button color="inherit" onClick={this.logOut.bind(this)}>Logout</Button>
-          </Toolbar>
-        </AppBar>
-      </div>
-    );
-  }
+    render() {
+        const {classes, navDrawerOpen, handleToggleDrawer} = this.props;
+
+        return (
+            <div>
+                <AppBar className={classNames(classes.appBar, navDrawerOpen && classes.appBarShift)}>
+                    <Toolbar>
+                        <IconButton aria-label="Menu" onClick={handleToggleDrawer}
+                                    className={classNames(!navDrawerOpen && classes.menuButton, navDrawerOpen && classes.menuButtonShift)}>
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography type="title" color="inherit" className={classes.flex}>
+
+                        </Typography>
+                        <Button onClick={this.logOut.bind(this)}>Logout</Button>
+                    </Toolbar>
+                </AppBar>
+            </div>
+        )
+    }
 }
 
 Header.propTypes = {
-    classes: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired,
-    navDrawerOpen: PropTypes.bool.isRequired,
-    handleToggleDrawer: PropTypes.func.isRequired,
+    classes: PropTypes.object.isRequired
 };
 
 /**
@@ -84,4 +83,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(Object.assign({}, authService), dispatch)
 });
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(Header));
+export default connect(null, mapDispatchToProps)(withStyles(styles)(Header))

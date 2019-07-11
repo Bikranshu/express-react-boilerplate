@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
 import classNames from 'classnames';
-import Drawer from 'material-ui/Drawer';
-import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography'
-import Avatar from 'material-ui/Avatar';
-import HomeIcon from 'material-ui-icons/Home';
-import PersonIcon from 'material-ui-icons/Person';
-import SettingsIcon from 'material-ui-icons/Settings';
-import HelpIcon from 'material-ui-icons/Help';
-import NotificationsIcon from 'material-ui-icons/Notifications';
-import LocalTaxiIcon from 'material-ui-icons/LocalTaxi';
+import {withStyles} from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import {List, ListItem, ListItemIcon, ListItemText} from '@material-ui/core';
+import Divider from '@material-ui/core/Divider';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography'
+import Avatar from '@material-ui/core/Avatar';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import SettingsIcon from '@material-ui/icons/Settings';
+import HelpIcon from '@material-ui/icons/Help';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import LocalTaxiIcon from '@material-ui/icons/LocalTaxi';
 
 const drawerWidth = 250;
 
@@ -64,7 +64,7 @@ const MiniDrawer = (props) => {
 
     return (
         <Drawer
-            type="permanent"
+            variant="permanent"
             classes={{
                 paper: classNames(classes.drawerPaper, !navDrawerOpen && classes.drawerPaperClose),
             }}

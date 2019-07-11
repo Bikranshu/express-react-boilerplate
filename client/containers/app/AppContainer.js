@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import { hot } from 'react-hot-loader';
 
 // Import custom components
 import MainRouter from '../../routers/routes';
 
 
-class App extends Component {
+class AppContainer extends Component {
 
     render() {
-
 
         return (
             <MainRouter />
@@ -16,8 +15,4 @@ class App extends Component {
     }
 }
 
-App.propTypes = {
-};
-
-
-export default hot(module)(App);
+export default hot(module)(AppContainer);

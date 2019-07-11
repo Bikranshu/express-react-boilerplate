@@ -1,36 +1,36 @@
 import axios from 'axios';
 
-// Import custom actionType
-import * as AuthAction from '../actions/authAction';
+import {loginSuccess, loginFailure, logoutSuccess} from '../actions/authAction';
+import history from '../utils/history';
+import {API_URL} from '../config/config';
+import {setLocalStorage, clearLocalStorage} from '../utils/storageUtil';
 
-import {BASE_URL, API_URL} from '../config/config';
-import {setToken, clearToken} from '../utils/storageUtil';
+export const login = ({email, password}) => {
 
-export function login({email, password}) {
-
-    return function (dispatch) {
+    return dispatch => {
         axios.post(API_URL + 'auth/login', {email, password}).then((response) => {
 
-            dispatch(AuthAction.loginSuccess(response.data.token));
+            dispatch(loginSuccess(response.data.token));
 
-            setToken(response.data.token);
+            setLocalStorage('token', response.data.token);
 
-            window.location.href = BASE_URL + 'dashboard';
+            history.push('/dashboard');
         })
             .catch((error) => {
-                dispatch(AuthAction.loginFailure(error));
+                dispatch(loginFailure(error.response.data));
             });
     };
-}
+};
 
-export function logout() {
-    return function (dispatch) {
+export const logout = () => {
+    return dispatch => {
 
-        clearToken();
+        clearLocalStorage('token');
 
-        dispatch(AuthAction.logoutSuccess());
+        dispatch(logoutSuccess());
 
-        window.location.href = BASE_URL;
+        history.push('/');
+
         return false;
     };
-}
+};

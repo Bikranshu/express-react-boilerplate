@@ -19,19 +19,19 @@ import * as httpService from '../services/httpService';
  */
 
 
-export function fetchAll(entity) {
-    return function (dispatch) {
+export const fetchAll = (entity) => {
+    return dispatch => {
         return httpService.fetchEntity(entity).then((response) => {
-            dispatch(commonAction.list(entity, response.data));
+            dispatch(commonAction.fetch(entity, response.data));
         })
             .catch((error) => {
                 dispatch(commonAction.failure(error));
             });
     };
-}
+};
 
-export function fetchById(entity, id) {
-    return function (dispatch) {
+export const fetchById = (entity, id) => {
+    return dispatch => {
         return httpService.fetchEntityById(entity, id).then((response) => {
             dispatch(commonAction.selectItem(entity, response.data));
         })
@@ -39,10 +39,10 @@ export function fetchById(entity, id) {
                 dispatch(commonAction.failure(error));
             });
     };
-}
+};
 
-export function storeItem(entity, data) {
-    return function (dispatch) {
+export const storeItem = (entity, data) => {
+    return dispatch => {
         return httpService.storeEntity(entity, data).then((response) => {
             history.goBack();
         })
@@ -50,10 +50,10 @@ export function storeItem(entity, data) {
                 dispatch(commonAction.failure(error));
             });
     };
-}
+};
 
-export function updateItem(entity, data, id) {
-    return function (dispatch) {
+export const updateItem = (entity, data, id) => {
+    return dispatch => {
         return httpService.updateEntity(entity, data, id).then((response) => {
             history.goBack();
         })
@@ -61,10 +61,10 @@ export function updateItem(entity, data, id) {
                 dispatch(commonAction.failure(error));
             });
     };
-}
+};
 
-export function destroyItem(entity, id, data) {
-    return function (dispatch) {
+export const destroyItem = (entity, id, data) => {
+    return dispatch => {
         return httpService.destroyEntity(entity, id).then((response) => {
             dispatch(fetchAll(entity, data));
         })
@@ -72,14 +72,14 @@ export function destroyItem(entity, id, data) {
                 dispatch(commonAction.failure(error));
             });
     };
-}
+};
 
-export function submitForm(entity, data, id) {
-    return function (dispatch) {
+export const submitForm = (entity, data, id) => {
+    return dispatch => {
         if (id) {
             dispatch(updateItem(entity, data, id));
         } else {
             dispatch(storeItem(entity, data));
         }
-    }
-}
+    };
+};

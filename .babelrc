@@ -1,10 +1,11 @@
 {
   "plugins": [
-    "react-hot-loader/babel"
+    "react-hot-loader/babel",
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-proposal-class-properties"
   ],
   "presets": [
-    "env",
-    "stage-0",
-    "react"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ]
 }

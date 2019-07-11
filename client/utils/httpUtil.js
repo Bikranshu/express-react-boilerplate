@@ -1,30 +1,21 @@
-import axios from 'axios';
-import {getToken} from './storageUtil'
+import {httpBase} from './httpBaseUtil';
 
-export function fetch(url, endpoint) {
-    return axios
-        .get(url + endpoint, {
-            headers: {'Authorization': 'Bearer' + ' ' + getToken()}
-        });
-}
+export const fetch = (endpoint) => {
+    return httpBase()
+        .get(endpoint);
+};
 
-export function store(url, endpoint, data) {
-    return axios
-        .post(url + endpoint, data, {
-            headers: {'Authorization': 'Bearer' + ' ' + getToken()}
-        });
-}
+export const store = (endpoint, data) => {
+    return httpBase()
+        .post(endpoint, data);
+};
 
-export function update(url, endpoint, data) {
-    return axios
-        .put(url + endpoint, data, {
-            headers: {'Authorization': 'Bearer' + ' ' + getToken()}
-        });
-}
+export const update = (endpoint, data) => {
+    return httpBase()
+        .put(endpoint, data);
+};
 
-export function destroy(url, endpoint) {
-    return axios
-        .delete(url + endpoint, {
-            headers: {'Authorization': 'Bearer' + ' ' + getToken()}
-        });
-}
+export const destroy = (endpoint) => {
+    return httpBase()
+        .delete(endpoint);
+};

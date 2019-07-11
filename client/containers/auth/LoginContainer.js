@@ -30,6 +30,7 @@ class LoginContainer extends Component {
         return (
             <LoginForm
                 onSubmit={this.submitForm}
+                errorMessage={this.props.errorMessage}
             />
         )
     }
@@ -41,7 +42,8 @@ class LoginContainer extends Component {
  */
 const mapStateToProps = state => ({
     token: state.auth.token,
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    errorMessage: state.auth.errorMessage
 });
 
 /**

@@ -19,4 +19,4 @@ class DashboardContainer extends Component {
 
 }
 
-export default DashboardContainer
+export default DashboardContainer;

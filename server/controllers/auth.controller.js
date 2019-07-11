@@ -25,6 +25,7 @@ export function login(req, res) {
                 }, process.env.TOKEN_SECRET_KEY);
 
                 res.json({
+                    success: true,
                     token,
                     email:  user.get('email')
                 });
@@ -32,7 +33,7 @@ export function login(req, res) {
                 logger.log('error', 'Authentication failed. Invalid password.');
 
                 res.status(HttpStatus.UNAUTHORIZED).json({
-                    error: true,
+                    success: false,
                     message: 'Authentication failed. Invalid password.'
                 });
             }
@@ -40,7 +41,7 @@ export function login(req, res) {
             logger.log('error', 'Invalid username or password.');
 
             res.status(HttpStatus.UNAUTHORIZED).json({
-                error: true, message: 'Invalid username or password.'
+                success: false, message: 'Invalid username or password.'
             });
         }
     });
