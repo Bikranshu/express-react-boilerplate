@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import {cyan, purple, orange} from '@material-ui/core/colors';
-import Paper from '@material-ui/core/Paper';
-import Avatar from '@material-ui/core/Avatar';
-import {List, ListItem, ListItemIcon, ListItemText, ListSubheader} from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
+import {cyan} from '@material-ui/core/colors';
+import {
+    Card,
+    CardHeader,
+    CardContent,
+    CardActions,
+    Divider, Avatar, Button, List, ListItem, ListItemIcon, ListItemText
+} from '@material-ui/core';
 import Wallpaper from '@material-ui/icons/Wallpaper';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 const styles = theme => ({
     root: {
@@ -16,22 +20,32 @@ const styles = theme => ({
         fontSize: 24,
         backgroundColor: cyan[600],
         color: '#FFFFFF'
+    },
+    actions: {
+        justifyContent: 'flex-end'
     }
 });
 
 const Product = props => {
     const classes = props.classes;
-    return (
-        <Paper>
-            <List className={classes.root}>
-                <ListSubheader className={classes.subheader}>Recent Products</ListSubheader>
+    const products = props.data;
 
-                {props.data.map(item =>
-                    <div key={item.title}>
-                        <ListItem>
+    return (
+        <Card
+        >
+            <CardHeader
+                title="Recent Products"
+            />
+            <Divider/>
+            <CardContent>
+
+                <List>
+                    {products.map((item, i) =>
+                        <ListItem divider={i < products.length - 1}
+                                  key={item.id}>
                             <ListItemIcon>
                                 <Avatar>
-                                    <Wallpaper />
+                                    <Wallpaper/>
                                 </Avatar>
                             </ListItemIcon>
                             <ListItemText
@@ -39,12 +53,21 @@ const Product = props => {
                                 secondary={item.text}
                             />
                         </ListItem>
-                        <Divider variant="inset"/>
-                    </div>
-                )}
-            </List>
-        </Paper>
-    )
+                    )}
+                </List>
+            </CardContent>
+            <Divider/>
+            <CardActions className={classes.actions}>
+                <Button
+                    color="primary"
+                    size="small"
+                    variant="text"
+                >
+                    View all <ArrowRightIcon/>
+                </Button>
+            </CardActions>
+        </Card>
+    );
 };
 
 Product.propTypes = {

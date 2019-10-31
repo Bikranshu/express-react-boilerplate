@@ -1,6 +1,6 @@
 import React from 'react';
 import {cyan, pink, purple, orange} from '@material-ui/core/colors';
-import Grid from '@material-ui/core/Grid';
+import {Grid} from '@material-ui/core';
 import {AddShoppingCart, ThumbUp, Assessment, Face} from '@material-ui/icons';
 
 import SummaryBox from './SummaryBox';
@@ -21,8 +21,11 @@ const Dashboard = () => {
         <div>
             <h2 style={{paddingBottom: '15px'}}>Dashboard</h2>
 
-            <Grid container spacing={24}>
-                <Grid item xs>
+            <Grid container spacing={4} style={{marginBottom: '15px'}}>
+                <Grid item lg={3}
+                      sm={6}
+                      xl={3}
+                      xs={12}>
                     <SummaryBox Icon={AddShoppingCart}
                                 color={pink[600]}
                                 title="Total Profit"
@@ -30,7 +33,10 @@ const Dashboard = () => {
                     />
                 </Grid>
 
-                <Grid item xs>
+                <Grid item lg={3}
+                      sm={6}
+                      xl={3}
+                      xs={12}>
                     <SummaryBox Icon={ThumbUp}
                                 color={cyan[600]}
                                 title="Likes"
@@ -38,7 +44,10 @@ const Dashboard = () => {
                     />
                 </Grid>
 
-                <Grid item xs>
+                <Grid item lg={3}
+                      sm={6}
+                      xl={3}
+                      xs={12}>
                     <SummaryBox Icon={Assessment}
                                 color={purple[600]}
                                 title="Sales"
@@ -46,7 +55,10 @@ const Dashboard = () => {
                     />
                 </Grid>
 
-                <Grid item xs>
+                <Grid item lg={3}
+                      sm={6}
+                      xl={3}
+                      xs={12}>
                     <SummaryBox Icon={Face}
                                 color={orange[600]}
                                 title="New Members"
@@ -56,7 +68,7 @@ const Dashboard = () => {
 
             </Grid>
 
-            <Grid container spacing={24}>
+            <Grid container spacing={24} style={{marginBottom: '15px'}}>
                 <Grid item xs>
                     <Product data={data.recentProducts}/>
                 </Grid>
