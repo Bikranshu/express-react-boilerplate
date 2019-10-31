@@ -101,7 +101,7 @@
     }
   },
   "lint-staged": {
-    "./src/**/**/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "./client/**/**/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --trailing-comma es5 --single-quote --write",
       "git add"
     ]
