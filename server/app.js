@@ -36,7 +36,8 @@ app.use(joiErrorHandler);
 
 // Error Handler
 app.use(errorHandler.notFoundErrorHandler);
-app.use(errorHandler.errorHandler);
+app.use(errorHandler.genericErrorHandler);
+app.use(errorHandler.methodNotAllowed);
 
 app.listen(app.get('port'), app.get('host'), () => {
     console.log(`Server running at http://${app.get('host')}:${app.get('port')}`);
