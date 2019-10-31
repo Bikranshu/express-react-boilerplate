@@ -5,3 +5,4 @@ export const APP_PORT = process.env.APP_PORT || 3000;
 export const HOST = `${APP_HOST}:${APP_PORT}/`;
 
 export const API_URL = `http://${HOST}${apiPath}`;
+export const JWT_TOKEN = 'token';
