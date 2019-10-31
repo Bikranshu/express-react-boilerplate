@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {loginSuccess, loginFailure, logoutSuccess} from '../actions/authAction';
 import history from '../utils/history';
-import {API_URL} from '../config/config';
+import {API_URL, JWT_TOKEN} from '../config/config';
 import {setLocalStorage, clearLocalStorage} from '../utils/storageUtil';
 
 export const login = ({email, password}) => {
@@ -12,7 +12,7 @@ export const login = ({email, password}) => {
 
             dispatch(loginSuccess(response.data.token));
 
-            setLocalStorage('token', response.data.token);
+            setLocalStorage(JWT_TOKEN, response.data.token);
 
             history.push('/dashboard');
         })
@@ -25,7 +25,7 @@ export const login = ({email, password}) => {
 export const logout = () => {
     return dispatch => {
 
-        clearLocalStorage('token');
+        clearLocalStorage(JWT_TOKEN);
 
         dispatch(logoutSuccess());
 

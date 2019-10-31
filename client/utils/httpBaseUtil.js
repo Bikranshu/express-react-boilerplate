@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {API_URL} from '../config/config';
+import {API_URL, JWT_TOKEN} from '../config/config';
 import {getLocalStorage} from './storageUtil';
 
 export const httpBase = () => {
@@ -9,7 +9,7 @@ export const httpBase = () => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'X-XSRF-TOKEN': getLocalStorage('token')
+            'X-XSRF-TOKEN': getLocalStorage(JWT_TOKEN)
         },
         responseType: 'json'
     });

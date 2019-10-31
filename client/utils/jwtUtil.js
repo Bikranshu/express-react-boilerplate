@@ -1,5 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import {getLocalStorage} from './storageUtil';
+import {JWT_TOKEN} from '../config/config';
 
 export let isTokenExpired = (token) => {
     try {
@@ -15,7 +16,7 @@ export let isTokenExpired = (token) => {
 };
 
 export let getToken = () => {
-    return getLocalStorage('token');
+    return getLocalStorage(JWT_TOKEN);
 };
 
 export let isAuthenticated = () => {
