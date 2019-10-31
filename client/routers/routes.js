@@ -9,17 +9,20 @@ import NotFound from '../components/error/NotFound';
 import LoginForm from '../containers/auth/LoginContainer';
 import SignUpForm from '../containers/auth/SignUpContainer';
 import Dashboard from '../containers/dashboard/DashboardContainer';
-import Authentication from './Authentication';
+
+import PrivateRoute from './PrivateRoute';
+import RestrictRoute from './RestrictRoute';
+
 
 const Router = () => (
     <Fragment>
         <Switch>
-            <Route exact path="/" component={LoginForm}/>
-            <Route path="/signup" component={SignUpForm}/>
+            <RestrictRoute exact path="/" component={LoginForm}/>
+            <RestrictRoute path="/signup" component={SignUpForm}/>
 
             <MainLayout>
                 <Switch>
-                    <Authentication path="/dashboard" component={Dashboard}/>
+                    <PrivateRoute path="/dashboard" component={Dashboard}/>
                 </Switch>
             </MainLayout>
 
