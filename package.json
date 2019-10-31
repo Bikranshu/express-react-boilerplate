@@ -82,8 +82,11 @@
     "cross-env": "^5.2.1",
     "eslint": "^6.2.2",
     "eslint-plugin-react": "^7.16.0",
+    "husky": "^3.0.9",
     "json-loader": "^0.5.7",
+    "lint-staged": "^9.4.2",
     "nodemon": "^1.19.4",
+    "prettier": "^1.18.2",
     "react-hot-loader": "^4.12.15",
     "rimraf": "^3.0.0",
     "webpack": "^4.41.2",
@@ -91,6 +94,17 @@
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.9.0",
     "webpack-hot-middleware": "^2.25.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/**/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">= 6.9.0",
