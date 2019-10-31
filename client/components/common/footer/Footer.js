@@ -5,7 +5,7 @@ import {withStyles} from '@material-ui/core/styles';
 const styles = theme => ({
     legal: {
         backgroundColor: '#fff',
-        position: 'absolute',
+        position: 'static',
         bottom: 0,
         width: '97.6%',
         borderTop: '1px solid #eee',
