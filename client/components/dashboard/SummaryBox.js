@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Card, CardContent, Grid} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import {grey} from '@material-ui/core/colors';
-import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
     root: {
@@ -38,17 +38,28 @@ const SummaryBox = props => {
     const {classes, color, title, value, Icon} = props;
 
     return (
-        <Paper>
+        <Card>
+            <CardContent>
+                <Grid
+                    container
+                    justify="space-between"
+                >
+                    <Grid item>
+
         <span className={classes.iconSpan} style={{backgroundColor: color}}>
           <Icon className={classes.icon}/>
         </span>
 
-            <div className={classes.root}>
-                <span className={classes.text}>{title}</span>
-                <span className={classes.number}>{value}</span>
-            </div>
-        </Paper>
-    )
+                        <div className={classes.root}>
+                            <span className={classes.text}>{title}</span>
+                            <span className={classes.number}>{value}</span>
+                        </div>
+
+                    </Grid>
+                </Grid>
+            </CardContent>
+        </Card>
+    );
 };
 
 SummaryBox.propTypes = {
