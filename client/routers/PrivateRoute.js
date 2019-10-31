@@ -3,7 +3,7 @@ import {Route, Redirect} from 'react-router-dom';
 
 import {isAuthenticated} from '../utils/jwtUtil';
 
-const Authentication = ({component: Component, ...rest}) => (
+const PrivateRoute = ({component: Component, ...rest}) => (
     <Route {...rest} render={props => (
         isAuthenticated() ? (
             <Component {...props}/>
@@ -16,4 +16,4 @@ const Authentication = ({component: Component, ...rest}) => (
     )}/>
 );
 
-export default Authentication;
+export default PrivateRoute;
