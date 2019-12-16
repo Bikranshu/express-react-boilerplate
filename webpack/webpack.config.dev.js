@@ -1,6 +1,7 @@
 'use strict';
 const webpack = require('webpack');
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 /*
  * so process.cwd() is used instead to determine the correct base directory
@@ -25,6 +26,7 @@ const config = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(), // enable HMR globally
         new webpack.NoEmitOnErrorsPlugin(),  // do not emit compiled assets that include errors
+        new Dotenv()
     ],
     module: {
         rules: [

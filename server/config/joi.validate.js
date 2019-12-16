@@ -1,30 +1,18 @@
-import Joi from 'joi';
+import Joi from '@hapi/joi';
 
 /**
- * Joi validation.
+ * Utility helper for Joi validation.
  *
  * @param  {object}  schema
  * @return {null|object}
  */
 function validate(schema) {
     return function (req, res, next) {
-        let toValidate = {};
-        if (!schema) {
-            return next();
+        const {error} = schema.validate(req['body'], {abortEarly: false});
+        if (error) {
+            return next(error);
         }
-        ['params', 'body', 'query'].forEach(function (key) {
-            if (schema[key]) {
-                toValidate[key] = req[key];
-            }
-        });
-
-        return Joi.validate(toValidate, schema, {abortEarly: false}, err => {
-            if (err) {
-                return next(err);
-            }
-
-            return next();
-        });
+        return next();
     };
 }
 
