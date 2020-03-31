@@ -1,34 +1,32 @@
-import React, {Fragment} from 'react';
-
-// Import routing components
-import {Route, Switch} from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import loadable from '@loadable/component';
 
 // Import custom components
-import MainLayout from '../components/common/layout/MainLayout';
-import NotFound from '../components/error/NotFound';
-import LoginForm from '../containers/auth/LoginContainer';
-import SignUpForm from '../containers/auth/SignUpContainer';
-import Dashboard from '../containers/dashboard/DashboardContainer';
-
 import PrivateRoute from './PrivateRoute';
 import RestrictRoute from './RestrictRoute';
+import MainLayout from '../components/common/layout/MainLayout';
+import NotFound from '../components/error/NotFound';
 
+export const AsyncLoginForm = loadable(() => import('../containers/auth/LoginContainer'));
+export const AsyncSignUpForm = loadable(() => import('../containers/auth/SignUpContainer'));
+export const AsyncDashboard = loadable(() => import('../containers/dashboard/DashboardContainer'));
 
 const Router = () => (
-    <Fragment>
+  <Fragment>
+    <Switch>
+      <RestrictRoute exact path="/" component={AsyncLoginForm} />
+      <RestrictRoute path="/signup" component={AsyncSignUpForm} />
+
+      <MainLayout>
         <Switch>
-            <RestrictRoute exact path="/" component={LoginForm}/>
-            <RestrictRoute path="/signup" component={SignUpForm}/>
-
-            <MainLayout>
-                <Switch>
-                    <PrivateRoute path="/dashboard" component={Dashboard}/>
-                </Switch>
-            </MainLayout>
-
-            <Route component={NotFound}/>
+          <PrivateRoute path="/dashboard" component={AsyncDashboard} />
         </Switch>
-    </Fragment>
+      </MainLayout>
+
+      <Route component={NotFound} />
+    </Switch>
+  </Fragment>
 );
 
 export default Router;
