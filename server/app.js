@@ -4,6 +4,7 @@ import routes from './routes/index.route';
 import swagger from './config/swagger';
 import * as errorHandler from './middlewares/errorHandler';
 import joiErrorHandler from './middlewares/joiErrorHandler';
+import requestLogger from './middlewares/requestLogger';
 
 // enable webpack hot module replacement in development mode
 import webpack from 'webpack';
@@ -22,6 +23,9 @@ if (process.env.NODE_ENV === 'development') {
 app.get('/swagger.json', (req, res) => {
    res.json(swagger);
 });
+
+// Request logger
+app.use(requestLogger);
 
 // Router
 app.use('/api', routes);
