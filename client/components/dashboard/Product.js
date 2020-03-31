@@ -18,7 +18,7 @@ import {
 import Wallpaper from '@material-ui/icons/Wallpaper';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
-const styles = (theme) => ({
+const styles = () => ({
   root: {
     paddingTop: 0,
   },

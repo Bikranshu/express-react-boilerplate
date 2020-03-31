@@ -1,36 +1,33 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
-    legal: {
-        backgroundColor: '#fff',
-        position: 'static',
-        bottom: 0,
-        width: '97.6%',
-        borderTop: '1px solid #eee',
-        padding: '15px',
-        overflow: 'hidden',
-        textAlign: 'center'
-    }
+const styles = () => ({
+  legal: {
+    backgroundColor: '#fff',
+    position: 'static',
+    bottom: 0,
+    width: '97.6%',
+    borderTop: '1px solid #eee',
+    padding: '15px',
+    overflow: 'hidden',
+    textAlign: 'center',
+  },
 });
-class Footer extends Component {
+const Footer = (props) => {
+  const { classes } = props;
 
-    render() {
-        const {classes} = this.props;
-
-        return (
-            <div className={classes.legal}>
-                <div className="copyright">
-                    © 2016 - 2017 <a href="javascript:void(0);">Material Design</a>.
-                </div>
-            </div>
-        )
-    }
-}
-
-Footer.propTypes = {
-    classes: PropTypes.object.isRequired
+  return (
+    <div className={classes.legal}>
+      <div className="copyright">
+        © 2016 - 2017 <a href="javascript:void(0);">Material Design</a>.
+      </div>
+    </div>
+  );
 };
 
-export default withStyles(styles)(Footer)
+Footer.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Footer);
