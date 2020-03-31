@@ -10,6 +10,7 @@ import { verifyToken } from './services/tokenService';
 import App from './containers/app/AppContainer';
 
 const mountNode = document.getElementById('root');
+
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true,

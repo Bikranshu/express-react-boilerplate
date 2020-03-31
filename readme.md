@@ -1,4 +1,4 @@
-MySQL, Express, React/Redux Boilerplate
+Express, React/Redux, MySQL Boilerplate
 
 ## Get Started
 
@@ -53,6 +53,6 @@ Navigate to http://localhost:3000/swagger for the API documentation.
 - Redux Form - [Redux Form](http://redux-form.com/8.3.0/)
 - Declarative routing for React - [React-Router](https://reacttraining.com/react-router/)
 - Promise based HTTP client - [Axios](https://github.com/mzabriskie/axios)
-- Code linting tool - [ESLint](http://eslint.org/)
 - Environment configuration - [dotenv](https://www.npmjs.com/package/dotenv)
+- Code linting tool - [ESLint](http://eslint.org/)
 - Code formatter - [Prettier](https://www.npmjs.com/package/prettier)
