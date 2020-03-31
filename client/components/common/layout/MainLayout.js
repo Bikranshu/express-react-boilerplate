@@ -46,7 +46,6 @@ const MainLayout = (props) => {
         <MiniDrawer navDrawerOpen={open} />
         <main className={classes.content}>{children}</main>
       </div>
-
       <Footer />
     </div>
   );
