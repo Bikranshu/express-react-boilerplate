@@ -1,7 +1,7 @@
 {
   "name": "express-mysql-react-redux",
   "version": "1.0.0",
-  "description": "MySQL, Express, React, Node Boilerplate Application",
+  "description": "MySQL, Express, React/Redux Boilerplate Application",
   "scripts": {
     "start": "babel-node server/app.js",
     "clean": "rimraf node_modules && rimraf dist && npm install",

@@ -1,4 +1,4 @@
-MySQL, Express, React/Redux and Node Boilerplate in ES6/ES7
+MySQL, Express, React/Redux Boilerplate
 
 ## Get Started
 
@@ -6,6 +6,7 @@ MySQL, Express, React/Redux and Node Boilerplate in ES6/ES7
 
 - [NodeJs](https://nodejs.org/en/)
 - [NPM](https://npmjs.org/) - Node package manager
+- [MySQL](https://www.mysql.com/downloads/)
 
 ### 2. Installation
 
@@ -53,3 +54,5 @@ Navigate to http://localhost:3000/swagger for the API documentation.
 - Declarative routing for React - [React-Router](https://reacttraining.com/react-router/)
 - Promise based HTTP client - [Axios](https://github.com/mzabriskie/axios)
 - Code linting tool - [ESLint](http://eslint.org/)
+- Environment configuration - [dotenv](https://www.npmjs.com/package/dotenv)
+- Code formatter - [Prettier](https://www.npmjs.com/package/prettier)
