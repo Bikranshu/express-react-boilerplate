@@ -8,9 +8,9 @@ import RestrictRoute from './RestrictRoute';
 import MainLayout from '../components/common/layout/MainLayout';
 import NotFound from '../components/error/NotFound';
 
-export const AsyncLoginForm = loadable(() => import('../containers/auth/LoginContainer'));
-export const AsyncSignUpForm = loadable(() => import('../containers/auth/SignUpContainer'));
-export const AsyncDashboard = loadable(() => import('../containers/dashboard/DashboardContainer'));
+const AsyncLoginForm = loadable(() => import('../containers/auth/LoginContainer'));
+const AsyncSignUpForm = loadable(() => import('../containers/auth/SignUpContainer'));
+const AsyncDashboard = loadable(() => import('../containers/dashboard/DashboardContainer'));
 
 const Router = () => (
   <Fragment>
