@@ -20,7 +20,7 @@ const Footer = (props) => {
   return (
     <div className={classes.legal}>
       <div className="copyright">
-        © 2016 - 2017 <a href="javascript:void(0);">Material Design</a>.
+        © 2016 - 2017 <a href="https://github.com/Bikranshu">Krishna Prasad Timilsina</a>
       </div>
     </div>
   );

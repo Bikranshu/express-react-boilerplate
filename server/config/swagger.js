@@ -10,7 +10,6 @@ const swaggerDefinition = {
         version: '1.0.0',
         description: 'RESTful API description with Swagger',
     },
-    host: 'localhost:3000',
     basePath: '/api'
 };
 

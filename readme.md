@@ -6,7 +6,7 @@ Express, React/Redux, MySQL Boilerplate
 
 - [NodeJs](https://nodejs.org/en/)
 - [NPM](https://npmjs.org/) - Node package manager
-- [MySQL](https://www.mysql.com/downloads/)
+- [MySQL](https://www.mysql.com/downloads/) - Relational database management system (RDBMS)
 
 ### 2. Installation
 
@@ -37,7 +37,7 @@ List of NPM Commands:
 
 URL : http://localhost:3000/
 
-Navigate to http://localhost:3000/swagger for the API documentation.
+Navigate to http://localhost:3000/swagger/ for the API documentation.
 
 ### 4. Useful Link
 - Web framework for Node.js - [Express](http://expressjs.com/)
