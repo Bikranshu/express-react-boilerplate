@@ -8,7 +8,7 @@ import logger from '../config/winston';
  * @param  {Object}   res
  * @param  {Function} next
  */
-export function notFoundErrorHandler(req, res, next) {
+export function notFound(req, res, next) {
     res.status(HttpStatus.NOT_FOUND)
         .json({
             error: {

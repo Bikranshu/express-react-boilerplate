@@ -35,12 +35,12 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-// Joi Error Handler
+// Joi Error Handler Middleware
 app.use(joiErrorHandler);
 
-// Error Handler
-app.use(errorHandler.notFoundErrorHandler);
+// Error Handler Middleware
 app.use(errorHandler.genericErrorHandler);
+app.use(errorHandler.notFound);
 app.use(errorHandler.methodNotAllowed);
 
 app.listen(app.get('port'), app.get('host'), () => {
