@@ -65,7 +65,7 @@ export function store(req, res) {
 
     User.forge({
         first_name, last_name, email, password
-    }, {hasTimestamps: true}).save()
+    }).save()
         .then(user => res.json({
                 success: true,
                 data: user.toJSON()
