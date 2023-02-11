@@ -87,7 +87,7 @@
     "husky": "^6.0.0",
     "json-loader": "^0.5.7",
     "lint-staged": "^10.5.4",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.20",
     "prettier": "^2.2.1",
     "react-hot-loader": "^4.13.0",
     "rimraf": "^3.0.0",
